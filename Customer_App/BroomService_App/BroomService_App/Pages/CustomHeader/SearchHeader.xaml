@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             BackgroundColor="Transparent"
+             x:Class="BroomService_App.Pages.CommonHeader.SearchHeader">
+  <ContentView.Content>
+        <Grid BackgroundColor="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image HorizontalOptions="Center" Style="{StaticResource MenuImageStyle}" Source="ic_drawer_menu.png" Grid.Column="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MenuIconCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" BackgroundColor="{StaticResource Transparent}">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding MenuIconCommand}"/>
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            
+            <Frame Grid.Column="1" HorizontalOptions="Fill" Padding="10,5" Margin="10,5" BackgroundColor="Transparent" HasShadow="False" BorderColor="{StaticResource GrayColor}">
+                <Frame.CornerRadius>
+                    <OnPlatform x:TypeArguments="x:Single"
+                                iOS     ="20"
+                                Android ="25"  />
+                </Frame.CornerRadius>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Entry Grid.Column="0" Text="{Binding SearchBarText}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate SearchProperty}"  ReturnType="Done"/>
+                    <Image Grid.Column="1" HorizontalOptions="End" Style="{StaticResource MenuImageStyle}" Source="ic_search.png"/>
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:local="clr-namespace:PinchGesture"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="BroomService_App.Pages.CommonPages.ImageZoomPage">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <ScrollView x:Name="zoomimagescroll">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <BoxView x:Name="imageBG" BackgroundColor="{StaticResource Black1Color}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                    <Frame x:Name="ReferenceImageFrame" HasShadow="False" BackgroundColor="{StaticResource Transparent}" CornerRadius="0" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" IsClippedToBounds="True">
+                        <Image x:Name="ReferenceImage" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="300"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ImageTapped" NumberOfTapsRequired="2"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:cc="clr-namespace:BroomService_App.CustomControls"
+             BackgroundColor="{StaticResource PageBGColor}"
+             x:Class="BroomService_App.Pages.CustomerFlow.JobRequestWebView">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:BackArrowHeader HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <WebView x:Name="webView" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill" Navigating="WebView_Navigating" Navigated="WebView_Navigated"/>
+            
+            <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5" BackgroundColor="{StaticResource WhiteColor}">
+                <Image  Style="{StaticResource LoginImageStyle}" Source="{Binding TermConditionCheck}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TermConditionCheckCommand}" NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label VerticalTextAlignment="Center" HorizontalOptions="Start">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{strings:Translate TermNcondtionMsgDetail}" Style="{StaticResource MediumLabelStyle}" TextColor="{StaticResource Black3Color}"/>
+                            <!--<Span Text="{strings:Translate TermandConditions}" Style="{StaticResource HeaderLabelStyle}" TextColor="{StaticResource Black1Color}">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TermConditionCommand}" />
+                                </Span.GestureRecognizers>
+                            </Span>-->
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TermConditionCheckCommand}" NumberOfTapsRequired="1"/>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

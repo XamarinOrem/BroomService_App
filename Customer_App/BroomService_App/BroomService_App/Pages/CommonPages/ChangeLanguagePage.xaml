@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:cc="clr-namespace:BroomService_App.CustomControls"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="BroomService_App.Pages.ChangeLanguagePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Image Source="broom_bg.jpg" Aspect="AspectFill" Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            <BoxView Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource Black1Color}" Opacity="0.3"/>
+
+            <!--Cross Image-->
+            <Image Source="whiteleftarrow.png" Style="{StaticResource LanguageBackButtonStyle}" HorizontalOptions="Start" Margin="20,10" IsVisible="{Binding IsAppAlreadyInstalled}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Frame Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" IsClippedToBounds="True" Margin="20,0,20,0">
+                <cc:CustomPicker Icon="ic_drop_arrow.png" Title="{strings:Translate changelang_PickerPlaceholder}" ItemsSource="{Binding ChangeLanguageList}" SelectedItem="{Binding ChangeLanguageListSelected}" ItemDisplayBinding="{Binding LanguageFullName}"/>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pages="clr-namespace:BroomService_App.Pages.ServiceProviderFlow"
+            xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+            xmlns:pages1="clr-namespace:BroomService_App.Pages"
+            NavigationPage.HasNavigationBar="False"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            xmlns:plugin="clr-namespace:Plugin.Badge.Abstractions;assembly=Plugin.Badge.Abstractions" 
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            xmlns:ccEffects="clr-namespace:BroomService_App.CustomControls.Effects"
+            ios:Page.UseSafeArea="True"
+            x:Name="hometabpage"
+            x:Class="BroomService_App.Pages.ServiceProviderFlow.HomeTabbedPage">
+  <!--Pages can be added as references or inline-->
+    <pages:HomePage Title="{strings:Translate Home}" IconImageSource="ic_home.png"/>
+    <pages1:ChatListPage Title="{strings:Translate Chat}" IconImageSource="ic_tab_chat.png"/>
+    <pages:NotificationPage Title="{strings:Translate Notifications}" IconImageSource="ic_notifications.png" plugin:TabBadge.BadgeText="{Binding BadgeCount}" plugin:TabBadge.BadgeColor="{StaticResource BlueColor}" plugin:TabBadge.BadgeTextColor="{StaticResource BlueColor}" plugin:TabBadge.BadgeFont="5"/>
+    <pages1:ProfilePage Title="{strings:Translate Profile}" IconImageSource="ic_profile.png"/>
+
+    <!--<TabbedPage.Effects>
+        <ccEffects:NoShiftEffect/>
+    </TabbedPage.Effects>-->
+</TabbedPage>

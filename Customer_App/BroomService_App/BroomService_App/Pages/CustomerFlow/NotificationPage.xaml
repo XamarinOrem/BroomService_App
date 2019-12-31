@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             BackgroundColor="{StaticResource PageBGColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             ios:Page.UseSafeArea="True"
+             x:Class="BroomService_App.Pages.NotificationPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:MenuIconwithTitleHeader HorizontalOptions="FillAndExpand" TitleText="{strings:Translate NotificationsTitle}"/>
+            </Frame>
+
+            <!--Notification ListView-->
+            <!--<StackLayout VerticalOptions="FillAndExpand" BackgroundColor="Olive">-->
+                <CollectionView Grid.Row="1"  x:Name="notificationList" ItemsSource="{Binding NotificationList}" ItemsLayout="VerticalList" 
+                                SelectedItem="{Binding NotificationSelected}" SelectionMode="Single" SelectionChanged="NotificationList_SelectionChanged" 
+                                EmptyView="{strings:Translate NoNotificationError}" VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="0,2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Frame Grid.Row="0" Padding="20" CornerRadius="0" HorizontalOptions="FillAndExpand" HasShadow="False" BackgroundColor="{StaticResource WhiteColor}">
+                                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Spacing="10">
+                                        <!--<Frame Padding="0" CornerRadius="3" IsClippedToBounds="True" VerticalOptions="Start">
+                                            <Image />
+                                        </Frame>-->
+                                        <img:CircleImage Source="{Binding UserPic}" HeightRequest="60" WidthRequest="60" VerticalOptions="Start" HorizontalOptions="Center" Aspect="AspectFill"/>
+                                        <StackLayout Orientation="Vertical" Spacing="8" HorizontalOptions="FillAndExpand">
+                                            <Label>
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                    <Span Text="{Binding FromUserName}" Style="{StaticResource BoldHeaderLabelStyle}" FontAttributes="Bold"/>
+                                                    <Span Text="{Binding Text}" Style="{StaticResource MediumLabelStyle}" TextColor="{StaticResource Black1Color}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+
+                                            <Label Text="{Binding UserNotificationTime}" HorizontalOptions="Start" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>
+
+                                            <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="End" IsVisible="{Binding IsButtonVisible}">
+                                                <Label Text="{strings:Translate Reject}" HorizontalOptions="Start" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource RejectColor}">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.RejectCommand, Source={x:Reference notificationList}}" CommandParameter="{Binding .}"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
+                                                <Label Text="{strings:Translate Accept}" HorizontalOptions="End" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource AcceptColor}">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.AcceptCommand, Source={x:Reference notificationList}}" CommandParameter="{Binding .}"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+           <!-- </StackLayout>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

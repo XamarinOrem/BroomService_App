@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>מידע עלינו</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>אשר</value>
+  </data>
+  <data name="AccessProperty" xml:space="preserve">
+    <value>לדוגמא, שומר/"קי בוקס"/מפתח/ אחר</value>
+  </data>
+  <data name="AccessPropertyTitle" xml:space="preserve">
+    <value>גישה לנכס (פרט)</value>
+  </data>
+  <data name="AccessPropertyWithDetails" xml:space="preserve">
+    <value>גישה לנכס (פרט)</value>
+  </data>
+  <data name="AddJobRequestBtn" xml:space="preserve">
+    <value>הזמן שירות</value>
+  </data>
+  <data name="AddProperty" xml:space="preserve">
+    <value>הוסף נכס</value>
+  </data>
+  <data name="AddPropertyHeaderMsg" xml:space="preserve">
+    <value>תוכל להוסיף כמה נכסים שתרצה</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>כתובת</value>
+  </data>
+  <data name="AddressTitle" xml:space="preserve">
+    <value>כתובת</value>
+  </data>
+  <data name="AddressValue" xml:space="preserve">
+    <value>4200 שער ירוק תחום</value>
+  </data>
+  <data name="ago" xml:space="preserve">
+    <value>לפני</value>
+  </data>
+  <data name="AlreadyAccountMsg" xml:space="preserve">
+    <value>יש לך כבר חשבון?</value>
+  </data>
+  <data name="ApartmentName" xml:space="preserve">
+    <value>דירות להשכרה</value>
+  </data>
+  <data name="ApartmentNumber" xml:space="preserve">
+    <value>כתוב את מספר הדירה</value>
+  </data>
+  <data name="ApartmentNumberTitle" xml:space="preserve">
+    <value>מספר דירה</value>
+  </data>
+  <data name="BalconyTitle" xml:space="preserve">
+    <value>מרפסת</value>
+  </data>
+  <data name="BathroomCount" xml:space="preserve">
+    <value>אנא כתוב את מספר חדרי השירותים</value>
+  </data>
+  <data name="BathroomCountTitle" xml:space="preserve">
+    <value>מספר חדרי השירותים</value>
+  </data>
+  <data name="BedroomCount" xml:space="preserve">
+    <value>כתוב את מספר חדרי השינה</value>
+  </data>
+  <data name="BedroomCountTitle" xml:space="preserve">
+    <value>מספר חדרי שינה</value>
+  </data>
+  <data name="BedSize" xml:space="preserve">
+    <value>גודל המיטה</value>
+  </data>
+  <data name="BuildingCode" xml:space="preserve">
+    <value>כתוב את קוד הבניין</value>
+  </data>
+  <data name="BuildingCodeTitle" xml:space="preserve">
+    <value>קוד הבניין</value>
+  </data>
+  <data name="CancelBtn" xml:space="preserve">
+    <value>בטל</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>מבוטל</value>
+  </data>
+  <data name="CategoryNotSelected" xml:space="preserve">
+    <value>אנא בחר שירות</value>
+  </data>
+  <data name="CategoryPickerTitle" xml:space="preserve">
+    <value>אנא בחר שירות</value>
+  </data>
+  <data name="CategorySelectedError" xml:space="preserve">
+    <value>אנא בחר שירות</value>
+  </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>שירות</value>
+  </data>
+  <data name="changelang_English" xml:space="preserve">
+    <value>אנגלית</value>
+  </data>
+  <data name="changelang_French" xml:space="preserve">
+    <value>צרפתית</value>
+  </data>
+  <data name="changelang_headerTitle" xml:space="preserve">
+    <value>שנה שפה</value>
+  </data>
+  <data name="changelang_Hebrew" xml:space="preserve">
+    <value>עברית</value>
+  </data>
+  <data name="changelang_PickerPlaceholder" xml:space="preserve">
+    <value>בחר שפה</value>
+  </data>
+  <data name="changelang_Russian" xml:space="preserve">
+    <value>רוסית</value>
+  </data>
+  <data name="ChangeyourPassword" xml:space="preserve">
+    <value>שנה סיסמתך</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>צ'אט</value>
+  </data>
+  <data name="ChatDetailMessagePlaceholder" xml:space="preserve">
+    <value>הקלד כאן...</value>
+  </data>
+  <data name="ChatListTitle" xml:space="preserve">
+    <value>צ'אט</value>
+  </data>
+  <data name="CheckListError" xml:space="preserve">
+    <value>השלם את רשימת המשימות</value>
+  </data>
+  <data name="CheckListTitle" xml:space="preserve">
+    <value>צ'קליסט</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>עיר</value>
+  </data>
+  <data name="CityValue" xml:space="preserve">
+    <value>באלטימור</value>
+  </data>
+  <data name="COMPLETE" xml:space="preserve">
+    <value>סיים</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>בוצע</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>אשר סיסמא</value>
+  </data>
+  <data name="ConfirmPasswordError" xml:space="preserve">
+    <value>הסיסמאות לא זהות</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>צור קשר</value>
+  </data>
+  <data name="ContactUsEmailError" xml:space="preserve">
+    <value>הכנס את כתובת האימייל</value>
+  </data>
+  <data name="ContactUsMsgError" xml:space="preserve">
+    <value>כתוב הודעה</value>
+  </data>
+  <data name="ContactUsNameError" xml:space="preserve">
+    <value>הכנס שם</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>מדינה</value>
+  </data>
+  <data name="CountryCodeError" xml:space="preserve">
+    <value>בבקשה תבחר את קוד המדינה</value>
+  </data>
+  <data name="CUSTOMER" xml:space="preserve">
+    <value>לקוח</value>
+  </data>
+  <data name="CustomerDetailTitle" xml:space="preserve">
+    <value>פרטי הלקוח</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>שם הלקוח</value>
+  </data>
+  <data name="DateTimeError" xml:space="preserve">
+    <value>בחר זמן ותאריך</value>
+  </data>
+  <data name="DateTimeTitle" xml:space="preserve">
+    <value>תאריך וזמן</value>
+  </data>
+  <data name="DateTimeValue" xml:space="preserve">
+    <value>14/08/2019 ב10:00 בבוקר</value>
+  </data>
+  <data name="day" xml:space="preserve">
+    <value>יום</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>ימים</value>
+  </data>
+  <data name="DescriptionPlaceholder" xml:space="preserve">
+    <value>כתוב כאן</value>
+  </data>
+  <data name="DescriptionTitle" xml:space="preserve">
+    <value>תיאור</value>
+  </data>
+  <data name="DetailApartmentNumberTitle" xml:space="preserve">
+    <value>מספר דירה</value>
+  </data>
+  <data name="DetailBuildingCodeTitle" xml:space="preserve">
+    <value>קוד בניין</value>
+  </data>
+  <data name="DetailFloorTitle" xml:space="preserve">
+    <value>קומה</value>
+  </data>
+  <data name="DeviceInfoupdated" xml:space="preserve">
+    <value>עדכון גרסא בוצע בהצלחה</value>
+  </data>
+  <data name="DishwasherTitle" xml:space="preserve">
+    <value>מדיח כלים</value>
+  </data>
+  <data name="DONE" xml:space="preserve">
+    <value>סיים</value>
+  </data>
+  <data name="DoneBtn" xml:space="preserve">
+    <value>סיים</value>
+  </data>
+  <data name="DoormanTitle" xml:space="preserve">
+    <value>שומר</value>
+  </data>
+  <data name="DoubleBeds" xml:space="preserve">
+    <value>כתוב את מספר המיטות הכפולות</value>
+  </data>
+  <data name="DoubleBedsTitle" xml:space="preserve">
+    <value>מספר מיטות כפולות</value>
+  </data>
+  <data name="DoubleSophaBeds" xml:space="preserve">
+    <value>כתוב את מספר מיטות הספה הכפולות</value>
+  </data>
+  <data name="DoubleSophaBedsTitle" xml:space="preserve">
+    <value>מספר מיטות הספה הכפולות</value>
+  </data>
+  <data name="Duvets" xml:space="preserve">
+    <value>כתוב את מספר כריות הנוי</value>
+  </data>
+  <data name="DuvetSize" xml:space="preserve">
+    <value>ציין את מספר כריות הנוי</value>
+  </data>
+  <data name="DuvetSizeTitle" xml:space="preserve">
+    <value>גודל כריות הנוי</value>
+  </data>
+  <data name="DuvetSizeValue" xml:space="preserve">
+    <value>קטן</value>
+  </data>
+  <data name="DuvetsTitle" xml:space="preserve">
+    <value>מספר כריות הנוי</value>
+  </data>
+  <data name="EditProfileHeaderTitle" xml:space="preserve">
+    <value>ערוך פרופיל</value>
+  </data>
+  <data name="ElevatorTitle" xml:space="preserve">
+    <value>מעלית</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>אימייל</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>הזן כתובת מייל תקינה</value>
+  </data>
+  <data name="EmptyFieldError" xml:space="preserve">
+    <value>יש למלא שדות חובה חסרים</value>
+  </data>
+  <data name="EndDateTimeTitle" xml:space="preserve">
+    <value>תאריך וזמן הסיום</value>
+  </data>
+  <data name="ENDTIMER" xml:space="preserve">
+    <value>סיימתי לעבוד</value>
+  </data>
+  <data name="ExceptionDeviceInfo" xml:space="preserve">
+    <value>יש בעיה בעדכון המכשיר פנה לתמיכה</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>שם פרטי</value>
+  </data>
+  <data name="FloorNumber" xml:space="preserve">
+    <value>כתוב את מספר הקומה</value>
+  </data>
+  <data name="FloorTitle" xml:space="preserve">
+    <value>קומה</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>שכחת סיסמא?</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>שכחת סיסמתך?</value>
+  </data>
+  <data name="ForgotYourPasswordText" xml:space="preserve">
+    <value>הכנס את האימייל שלך ונשלח לך קישור לאיפוס סיסמא</value>
+  </data>
+  <data name="FullAddress" xml:space="preserve">
+    <value>כתובת מלאה</value>
+  </data>
+  <data name="GardenTitle" xml:space="preserve">
+    <value>גינה</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>דף הבית</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>שעה</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>שעות</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>בתהליך</value>
+  </data>
+  <data name="JobDetailChatOption" xml:space="preserve">
+    <value>צ'אט</value>
+  </data>
+  <data name="JobDetailProperty" xml:space="preserve">
+    <value>דירה להשכרה</value>
+  </data>
+  <data name="JobDetailServiceCategory" xml:space="preserve">
+    <value>אינסטלציה</value>
+  </data>
+  <data name="JobDetailsHeaderTitle" xml:space="preserve">
+    <value>פרטים</value>
+  </data>
+  <data name="jobdetail_Jobrating" xml:space="preserve">
+    <value>דירוג משרה</value>
+  </data>
+  <data name="JobPriceTitle" xml:space="preserve">
+    <value>מחיר משרה</value>
+  </data>
+  <data name="JobRequest" xml:space="preserve">
+    <value>הזמן שירות</value>
+  </data>
+  <data name="JobRequestHeaderTitle" xml:space="preserve">
+    <value>הזמן שירות</value>
+  </data>
+  <data name="JobReviewTitle" xml:space="preserve">
+    <value>ביקורת עבודה</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>שם משפחה</value>
+  </data>
+  <data name="LoadingMsg" xml:space="preserve">
+    <value>טוען...</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>התחבר</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>התנתק</value>
+  </data>
+  <data name="LogoutMsg" xml:space="preserve">
+    <value>האם ברצונך להתנתק?</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>הודעה</value>
+  </data>
+  <data name="minute" xml:space="preserve">
+    <value>דקה</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>דקות</value>
+  </data>
+  <data name="month" xml:space="preserve">
+    <value>חודש</value>
+  </data>
+  <data name="months" xml:space="preserve">
+    <value>חודשים</value>
+  </data>
+  <data name="MyBookingHeaderTitle" xml:space="preserve">
+    <value>ההזמנות שלי</value>
+  </data>
+  <data name="MyBookings" xml:space="preserve">
+    <value>ההזמנות שלי</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>שם</value>
+  </data>
+  <data name="NameofProperty" xml:space="preserve">
+    <value>שם הנכס</value>
+  </data>
+  <data name="NameofPropertyTitle" xml:space="preserve">
+    <value>שם הנכס *</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>סיסמא חדשה</value>
+  </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>משתמש חדש?</value>
+  </data>
+  <data name="NextBtn" xml:space="preserve">
+    <value>הבא</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>לא</value>
+  </data>
+  <data name="NoChatListFound" xml:space="preserve">
+    <value>אין לך צ'אט פעיל</value>
+  </data>
+  <data name="NoInternetError" xml:space="preserve">
+    <value>בדוק את חיבור האנטרנט שלך</value>
+  </data>
+  <data name="NoJobRequest" xml:space="preserve">
+    <value>אין הזמנות</value>
+  </data>
+  <data name="NoNotificationError" xml:space="preserve">
+    <value>אין התראות</value>
+  </data>
+  <data name="NoPropertyFound" xml:space="preserve">
+    <value>אין נכסים</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>התראות</value>
+  </data>
+  <data name="NotificationsTitle" xml:space="preserve">
+    <value>התראות</value>
+  </data>
+  <data name="NotificationUserMessage" xml:space="preserve">
+    <value>קיבל את קריאתך</value>
+  </data>
+  <data name="NotificationUserMessageBtn" xml:space="preserve">
+    <value>שלח לך הצעת מחיר</value>
+  </data>
+  <data name="NotificationUserName" xml:space="preserve">
+    <value>נייט פארקר</value>
+  </data>
+  <data name="NotificationUserTime" xml:space="preserve">
+    <value>לפני 8 ימים</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>סיסמא ישנה</value>
+  </data>
+  <data name="ParkingTitle" xml:space="preserve">
+    <value>חנייה</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>סיסמא</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>בהמתנה</value>
+  </data>
+  <data name="PersonalDetailHeader" xml:space="preserve">
+    <value>פרטים אישיים</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>מספר טלפון</value>
+  </data>
+  <data name="Pillow" xml:space="preserve">
+    <value>כתוב את מספר הכריות</value>
+  </data>
+  <data name="PillowsTitle" xml:space="preserve">
+    <value>מספר כריות</value>
+  </data>
+  <data name="PoolTitle" xml:space="preserve">
+    <value>בריכה</value>
+  </data>
+  <data name="PriceofServices" xml:space="preserve">
+    <value>מחיר השירות</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>פרופיל</value>
+  </data>
+  <data name="ProfileHeaderTitle" xml:space="preserve">
+    <value>פרופיל</value>
+  </data>
+  <data name="ProfileNameError" xml:space="preserve">
+    <value>בבקשה הכנס שם פרטי ומשפחה</value>
+  </data>
+  <data name="ProfileUserChangePasswordBtn" xml:space="preserve">
+    <value>החלף סיסמא</value>
+  </data>
+  <data name="PropertyAddressTitle" xml:space="preserve">
+    <value>כתובת</value>
+  </data>
+  <data name="PropertyDetailsHeaderTitle" xml:space="preserve">
+    <value>פרטי הנכס</value>
+  </data>
+  <data name="propertyDuvetType_Large" xml:space="preserve">
+    <value>גדול</value>
+  </data>
+  <data name="propertyDuvetType_Medium" xml:space="preserve">
+    <value>בינוני</value>
+  </data>
+  <data name="propertyDuvetType_Small" xml:space="preserve">
+    <value>קטן</value>
+  </data>
+  <data name="PropertyListTitle" xml:space="preserve">
+    <value>רשימת הנכסים</value>
+  </data>
+  <data name="PropertyPickerTitle" xml:space="preserve">
+    <value>בחר נכס</value>
+  </data>
+  <data name="PropertySize" xml:space="preserve">
+    <value>ציין את גודל הנכס</value>
+  </data>
+  <data name="PropertySizeTitle" xml:space="preserve">
+    <value>גודל הנכס</value>
+  </data>
+  <data name="PropertyTitle" xml:space="preserve">
+    <value>נכס</value>
+  </data>
+  <data name="PropertyType" xml:space="preserve">
+    <value>בית/דירה</value>
+  </data>
+  <data name="PropertyTypeTitle" xml:space="preserve">
+    <value>סוג הנכס:</value>
+  </data>
+  <data name="propertyType_Apartment" xml:space="preserve">
+    <value>דירה</value>
+  </data>
+  <data name="propertyType_Duplex" xml:space="preserve">
+    <value>דופלקס</value>
+  </data>
+  <data name="propertyType_Penthouse" xml:space="preserve">
+    <value>פנטהאוז</value>
+  </data>
+  <data name="propertyType_Villa" xml:space="preserve">
+    <value>וילה</value>
+  </data>
+  <data name="Queenbeds" xml:space="preserve">
+    <value>כתוב את מספר מיטות ה"Queen"</value>
+  </data>
+  <data name="QueenbedsTitle" xml:space="preserve">
+    <value>מספר מיטות "Queen"</value>
+  </data>
+  <data name="QueenSize" xml:space="preserve">
+    <value>מיטת "Quenn"</value>
+  </data>
+  <data name="ReferenceImagesTitle" xml:space="preserve">
+    <value>תמונות מקושרות</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>הרשם</value>
+  </data>
+  <data name="RegisterHeaderMsg" xml:space="preserve">
+    <value>צור חשבון כדי להשתמש באפליקצית ברום סרוויס</value>
+  </data>
+  <data name="RegisterServerError" xml:space="preserve">
+    <value>אנא מלא את השם, המייל, הסיסמא, מספר טלפון, שם מדינה וקוד המדינה</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>דחה</value>
+  </data>
+  <data name="RequiredFieldError" xml:space="preserve">
+    <value>אנא מלא את שדות החובה</value>
+  </data>
+  <data name="SaveBtn" xml:space="preserve">
+    <value>שמור</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>חפש נכס</value>
+  </data>
+  <data name="SearchProperty" xml:space="preserve">
+    <value>שנייה</value>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>שניות</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>שלח</value>
+  </data>
+  <data name="SendBtn" xml:space="preserve">
+    <value>שלח הצעת מחיר</value>
+  </data>
+  <data name="SendQuote" xml:space="preserve">
+    <value>תקלה מצד השרת פנה לתמיכה</value>
+  </data>
+  <data name="ServerError" xml:space="preserve">
+    <value>שירותים</value>
+  </data>
+  <data name="ServiceCategoryHeaderTitle" xml:space="preserve">
+    <value>תיאור השירות</value>
+  </data>
+  <data name="ServiceDescriptionTitle" xml:space="preserve">
+    <value>נותן השרות</value>
+  </data>
+  <data name="SERVICEPROVIDER" xml:space="preserve">
+    <value>נותן השרות</value>
+  </data>
+  <data name="ServiceProviderName" xml:space="preserve">
+    <value>נייט פארקר</value>
+  </data>
+  <data name="ServiceProviderNameTitle" xml:space="preserve">
+    <value>שמו של נותן השירות</value>
+  </data>
+  <data name="ServiceSubCategoryHeaderTitle" xml:space="preserve">
+    <value>שירות</value>
+  </data>
+  <data name="ServiceSubSubCategoryHeaderTitle" xml:space="preserve">
+    <value>שירות</value>
+  </data>
+  <data name="ServiceTime" xml:space="preserve">
+    <value>אחר הצהריים</value>
+  </data>
+  <data name="ServiceType" xml:space="preserve">
+    <value>שירותי אינסטלציה</value>
+  </data>
+  <data name="ShortTermAirBnbAprtment" xml:space="preserve">
+    <value>דירת Airbnb לתקופות קצרות</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>הרשם</value>
+  </data>
+  <data name="Singlebeds" xml:space="preserve">
+    <value>כתוב את מספר המיטות יחיד</value>
+  </data>
+  <data name="SinglebedsTitle" xml:space="preserve">
+    <value>מספר מיטות יחיד</value>
+  </data>
+  <data name="SingleSophabeds" xml:space="preserve">
+    <value>רשום את מספר המיטות ספה יחיד</value>
+  </data>
+  <data name="SingleSophabedsTitle" xml:space="preserve">
+    <value>מספר מיטות הספה יחיד</value>
+  </data>
+  <data name="StartDateTimeTitle" xml:space="preserve">
+    <value>תאריך ושעת התחלה</value>
+  </data>
+  <data name="STARTJOB" xml:space="preserve">
+    <value>התחל טיימר</value>
+  </data>
+  <data name="STARTTIMER" xml:space="preserve">
+    <value>בחר שירות</value>
+  </data>
+  <data name="SubCategoryError" xml:space="preserve">
+    <value>שירות</value>
+  </data>
+  <data name="SubCategoryTitle" xml:space="preserve">
+    <value>שירות</value>
+  </data>
+  <data name="TermandConditions" xml:space="preserve">
+    <value>תקנון ותנאי שימוש</value>
+  </data>
+  <data name="TermConditionError" xml:space="preserve">
+    <value>בבקשה קבל את התקנון ותנאי השימוש</value>
+  </data>
+  <data name="TermNcondtionMsg" xml:space="preserve">
+    <value>אני קראתי והסכמתי ל</value>
+  </data>
+  <data name="ToiletsCount" xml:space="preserve">
+    <value>כתוב את מספר השירותים</value>
+  </data>
+  <data name="ToiletsCountTitle" xml:space="preserve">
+    <value>מספר השירותים</value>
+  </data>
+  <data name="TypeofProperty" xml:space="preserve">
+    <value>אנא קבל את התקנון ותנאי השימוש כדי להוסיף בקשת עבודה</value>
+  </data>
+  <data name="TypeofPropertyTitle" xml:space="preserve">
+    <value>סוג הנכס</value>
+  </data>
+  <data name="TypeOfServiceTitle" xml:space="preserve">
+    <value>סוג הנכס</value>
+  </data>
+  <data name="Upcoming" xml:space="preserve">
+    <value>סוג השירות</value>
+  </data>
+  <data name="UpdateBtn" xml:space="preserve">
+    <value>ממתין לביצוע</value>
+  </data>
+  <data name="UpdatePropertyPageTitle" xml:space="preserve">
+    <value>עדכן</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>עדכן נכס</value>
+  </data>
+  <data name="ViewProfile" xml:space="preserve">
+    <value>צפה בפרטים</value>
+  </data>
+  <data name="WelcomeMsg" xml:space="preserve">
+    <value>צפה בפרופיל</value>
+  </data>
+  <data name="WelcomeToBroomService" xml:space="preserve">
+    <value>ברוך הבא לברום סרוויס!</value>
+  </data>
+  <data name="WORKER" xml:space="preserve">
+    <value>ברוך הבא לברום סרוויס!</value>
+  </data>
+  <data name="Writehere" xml:space="preserve">
+    <value>עובד</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>כתוב כאן</value>
+  </data>
+  <data name="years" xml:space="preserve">
+    <value>שנה</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>שנים</value>
+  </data>
+  <data name="Zipcode" xml:space="preserve">
+    <value>כן</value>
+  </data>
+</root>

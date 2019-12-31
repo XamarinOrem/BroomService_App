@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True"
+NavigationPage.HasNavigationBar="False"
+             x:Class="BroomService_App.Pages.LoginPage">
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                <Image x:Name="imgTop" Source="forget.png"  HorizontalOptions="FillAndExpand" Aspect="AspectFill" VerticalOptions="FillAndExpand" />
+
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End">
+                    <!--Email Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,30,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_mail.png"/>
+                        <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                        <Entry Text="{Binding Email}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Email}" TextColor="{StaticResource Black1Color}" ReturnType="Next"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                    <!--Password/Forgot_Password Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_lock.png"/>
+                        <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                        <Entry Text="{Binding Password}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Password}" TextColor="{StaticResource Black1Color}" IsPassword="True" ReturnType="Done"/>
+                        <Label Style="{StaticResource HeaderLabelStyle}" Text="{strings:Translate ForgotPassword}"
+                               TextColor="{StaticResource BlueColor}" HorizontalOptions="End" HorizontalTextAlignment="End" VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"   />
+
+                    <!--Signup/Next Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="20,0,20,20">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <Label Text="{strings:Translate NewUser}" Style="{StaticResource MediumLabelStyle}"
+                            VerticalTextAlignment="Center"   HorizontalOptions="Start" />
+                            <Label Text="{strings:Translate SignUp}" Style="{StaticResource HeaderLabelStyle}"
+                               VerticalTextAlignment="Center" TextColor="{StaticResource BlueColor}"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <Image Source="ic_next_btn" HorizontalOptions="EndAndExpand"  >
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoginCommand}"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+
+
+    </ContentPage.Content>
+</ContentPage>

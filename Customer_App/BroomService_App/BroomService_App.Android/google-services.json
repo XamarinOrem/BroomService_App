@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "679114337944",
+    "firebase_url": "https://broomserviceapp-1cf32.firebaseio.com",
+    "project_id": "broomserviceapp-1cf32",
+    "storage_bucket": "broomserviceapp-1cf32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679114337944:android:6bdb16213f9d1de55e2aed",
+        "android_client_info": {
+          "package_name": "com.broomservices.BroomService_App"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679114337944-q95t9mgntlbbn9mfvjjder1hghtg2tj3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.broomservices.BroomService_App",
+            "certificate_hash": "520ccbdf39cd38924f47e9f23d3d6d0772dad115"
+          }
+        },
+        {
+          "client_id": "679114337944-68kk5vndss45c3ggo1cedempmgtiqbns.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw9wv77UjP0OW9xfAK-wf3hwKgw91XSP0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679114337944-68kk5vndss45c3ggo1cedempmgtiqbns.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

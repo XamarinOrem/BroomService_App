@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:cc="clr-namespace:BroomService_App.CustomControls"
+             BackgroundColor="{StaticResource PageBGColor}"
+             x:Class="BroomService_App.Pages.JobRequestPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:BackArrowHeader TitleText="{strings:Translate JobRequestHeaderTitle}" HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <!--Scroll View-->
+            <ScrollView Grid.Row="1">
+                <StackLayout BackgroundColor="{StaticResource WhiteColor}" Padding="20,20,20,0" Spacing="15">
+                    <!--Property Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate PropertyTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Frame Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill" HasShadow="False">
+                            <cc:CustomPicker Icon="ic_drop_arrow.png" Title="{strings:Translate PropertyPickerTitle}" VerticalOptions="Center" ItemsSource="{Binding PropertyTypeList}" SelectedItem="{Binding PropertyTypeListSelected}" SelectedIndex="{Binding PropertyTypeSelectedIndexChanged}" IsEnabled="False"/>
+                        </Frame>
+                    </StackLayout>
+
+                    <!--#region Commented code-->
+                    <!--Category Field-->
+                    <!--<StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate CategoryTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Frame Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill">
+                            <cc:CustomPicker Icon="ic_drop_arrow.png" Title="{strings:Translate CategoryPickerTitle}" VerticalOptions="Center" ItemsSource="{Binding CategoryPickerList}" SelectedItem="{Binding CategorySelected}" ItemDisplayBinding="{Binding Name}"/>
+
+                        </Frame>
+                    </StackLayout>-->
+
+                    <!--SubCategoryTitle Field-->
+                    
+                    <!--<StackLayout Spacing="10">
+                        <Label Text="{strings:Translate SubCategoryTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+
+                        <CollectionView x:Name="subcategoryList" ItemsSource="{Binding SubCategoryList}" ItemsLayout="VerticalList" SelectionMode="Multiple" SelectionChanged="SubcategoryList_SelectionChanged" BackgroundColor="{StaticResource Transparent}" HeightRequest="{Binding SubCategoryHeight}" IsVisible="{Binding IsCategorySelected}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="0,5" Style="{StaticResource subcategorygrid}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Frame Grid.Row="0" Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" BackgroundColor="{Binding SubCategorySelectedColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill" HeightRequest="60" HasShadow="True">
+                                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                                                <Label Text="{Binding Name}" TextColor="{Binding SubCategoryTextColor}" HorizontalOptions="FillAndExpand"/>
+                                                <Label Text="{Binding Price}" TextColor="{Binding SubCategoryTextColor}" HorizontalOptions="End"/>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+
+                        <StackLayout HeightRequest="100" HorizontalOptions="FillAndExpand" IsVisible="{Binding IsCategorySelected, Converter={StaticResource BoolToNotBoolConverter}}">
+                            <Label Text="{strings:Translate CategoryNotSelected}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                    </StackLayout>-->
+                    <!--#endregion-->
+                    
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                    <!--Start DateTime Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate StartDateTimeTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Frame Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill" HasShadow="False">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                                <Label Text="{Binding StartDateTimeValue}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand"/>
+                                <Image Style="{StaticResource LoginImageStyle}" Source="ic_calendar.png" HorizontalOptions="End"/>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding DateTimePickerCommand}" CommandParameter="Start" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                        <DatePicker x:Name="startdatePicker" IsVisible="False" Unfocused="StartDatePicker_Unfocused"/>
+                        <TimePicker x:Name="starttimePicker" IsVisible="False" Unfocused="StartTimePicker_Unfocused"/>
+                    </StackLayout>
+
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                    <!--End DateTime Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate EndDateTimeTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Frame HasShadow="False" Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                                <Label Text="{Binding EndDateTimeValue}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand"/>
+                                <Image Style="{StaticResource LoginImageStyle}" Source="ic_calendar.png" HorizontalOptions="End"/>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding DateTimePickerCommand}" CommandParameter="End" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </Frame>
+                        <DatePicker x:Name="enddatePicker" IsVisible="False" Unfocused="EndDatePicker_Unfocused"/>
+                        <TimePicker x:Name="endtimePicker" IsVisible="False" Unfocused="EndTimePicker_Unfocused"/>
+                    </StackLayout>
+
+                    <!--Address Field-->
+                    <!--<StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate AddressTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Frame Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                                <Label Text="{strings:Translate AddressValue}" TextColor="{StaticResource Black2Color}" HorizontalOptions="Start"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>-->
+
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10" />
+
+                    <StackLayout Spacing="10" Padding="0,0,0,10">
+                        <Label Text="{strings:Translate CheckListTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <ListView x:Name="workerworklist" ItemsSource="{Binding CheckList}" RowHeight="50" HeightRequest="{Binding CheckListHeight}" IsVisible="{Binding IsCheckList}" SeparatorVisibility="None" ItemSelected="Workerworklist_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" HasShadow="False" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill">
+                                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                                                <Label Text="{Binding CheckListValue}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                                <Image Style="{StaticResource LoginImageStyle}" Source="ic_cancel.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="End" VerticalOptions="Center">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.CloseCommand, Source={x:Reference workerworklist}}" CommandParameter="{Binding .}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </StackLayout>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <Frame HasShadow="False" Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                                <StackLayout Spacing="2" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                    <Entry Text="{Binding CheckListEntry}" Placeholder="{strings:Translate CheckListEntry}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" PlaceholderColor="{StaticResource GrayColor}" TextColor="{StaticResource Black1Color}"/>
+                                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+                                </StackLayout>
+                                <Image Style="{StaticResource LoginImageStyle}" Source="ic_plus_red.png" HorizontalOptions="End">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding AddCheckListCommand}" NumberOfTapsRequired="1"/>
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+
+                    <!--#region If Price is not given-->
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10" IsVisible="{Binding IsNoPriceAvailable}"/>
+                    <!--Reference Images-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" IsVisible="{Binding IsNoPriceAvailable}">
+                        <Label Text="{strings:Translate ReferenceImagesTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <CollectionView x:Name="referenceImagesList" ItemsSource="{Binding ReferenceImagesList, Mode=TwoWay}" ItemsLayout="HorizontalList" HeightRequest="110" IsVisible="{Binding IsReferenceImagesVisible}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame CornerRadius="0" HorizontalOptions="Fill" IsClippedToBounds="True" VerticalOptions="Center" Padding="0">
+                                            <Image Source="{Binding ReferenceImages}" HeightRequest="100" WidthRequest="100" Margin="0,0,5,0" Aspect="AspectFill"/>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            <Image Source="ic_plus.png" VerticalOptions="Center" IsVisible="{Binding IsAddButtonVisible}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CameraOptionCommand}" NumberOfTapsRequired="1"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!--DescriptionTitle Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" IsVisible="{Binding IsNoPriceAvailable}" Padding="0,0,0,10">
+                        <Label Text="{strings:Translate DescriptionTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Frame HasShadow="False" HeightRequest="150" BorderColor="{StaticResource BGColor}" CornerRadius="3" Padding="10,15" HorizontalOptions="Fill">
+                            <Editor Style="{StaticResource EditorStyle}" Placeholder="{strings:Translate DescriptionPlaceholder}" PlaceholderColor="{StaticResource GrayColor}" HorizontalOptions="Fill" VerticalOptions="Fill" TextColor="{StaticResource Black1Color}" Text="{Binding JobDescription}"/>
+                        </Frame>
+                    </StackLayout>
+                    <!--#endregion-->
+                    
+                    
+                </StackLayout>
+            </ScrollView>
+
+            <!--Send Button-->
+            <Button Grid.Row="2" Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource BlueColor}" Text="{strings:Translate SendBtn}" Command="{Binding SendCommand}" HeightRequest="60" HorizontalOptions="FillAndExpand" Margin="0,0"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

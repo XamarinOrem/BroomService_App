@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             xmlns:cc="clr-namespace:BroomService_App.CustomControls"
+             xmlns:img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BackgroundColor="{StaticResource PageBGColor}"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:local="clr-namespace:PinchGesture"
+             xmlns:skiarate="clr-namespace:SkiaRate;assembly=SkiaRate.Forms"
+             ios:Page.UseSafeArea="True"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="BroomService_App.Pages.WorkerFlow.JobDetailPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:BackArrowHeader TitleText="{strings:Translate JobDetailsHeaderTitle}" HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <!--Scroll View-->
+            <ScrollView Grid.Row="1">
+                <StackLayout BackgroundColor="{StaticResource WhiteColor}" Padding="20,20,20,10" Spacing="15">
+
+                    <!--Job Worker Field-->
+                    <Frame CornerRadius="3" BackgroundColor="{StaticResource WhiteColor}" Padding="10" HasShadow="False" BorderColor="{StaticResource GrayColor}">
+                        <StackLayout Orientation="Horizontal" Spacing="8">
+                            <img:CircleImage Source="{Binding MyBooking.CustomerImage}" Style="{StaticResource JobDetailCircleImageStyle}" VerticalOptions="Center"/>
+                            <StackLayout Orientation="Vertical" Spacing="0">
+                                <Label Text="{strings:Translate CustomerDetailTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>
+                                <Label Text="{Binding MyBooking.CustomerName}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" VerticalOptions="Start"/>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                <Image Source="ic_chat.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" HorizontalOptions="End"/>
+                                <Label Text="{strings:Translate JobDetailChatOption}"  HorizontalOptions="End" VerticalOptions="Center"/>
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ChatCommand}" NumberOfTapsRequired="1"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--Property Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate PropertyTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                            <Label Text="{Binding MyBooking.PropertyName}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand"/>
+                            <Image Source="ic_property_details" VerticalOptions="Center" HorizontalOptions="End"/>
+
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PropertyDetailCommand}" NumberOfTapsRequired="1"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                        <!--<Label Text="{Binding MyBooking.PropertyName}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>-->
+                    </StackLayout>
+                    <!--<BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>-->
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                    <!--Category Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate CategoryTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <!--<Frame Padding="0" CornerRadius="3" IsClippedToBounds="True" VerticalOptions="Start">
+                                <Image Source="{Binding MyBooking.Category.Icon}" HeightRequest="50" WidthRequest="50" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+                            </Frame>-->
+                            <Frame Padding="0" CornerRadius="5" IsClippedToBounds="True" VerticalOptions="Start" HeightRequest="50" WidthRequest="50">
+                                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="0" ColumnSpacing="0">
+                                    <Image Source="{Binding MyBooking.Category.Picture}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+                                    <Image Source="{Binding MyBooking.Category.Icon}" HeightRequest="30" WidthRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                </Grid>
+                            </Frame>
+                            <Label Text="{Binding MyBooking.Category.Name}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}" VerticalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                    <!--SubCategory Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill">
+                        <Label Text="{strings:Translate SubCategoryTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <!--<Label Text="{Binding MyBooking.SubCategoryName}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>-->
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                            <Label Text="{Binding MyBooking.SubCategory.Name}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand"/>
+                            <!--<Label Text="{Binding MyBooking.SubCategory.Price}" TextColor="{StaticResource Black2Color}" HorizontalOptions="End"/>-->
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10"/>
+
+                    <!--SubSubCategoryTitle Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" IsVisible="{Binding IsSubsubCategoryVisible}">
+                        <Label Text="{strings:Translate TypeOfServiceTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+
+                        <CollectionView ItemsSource="{Binding SubSubCategoryList, Mode=TwoWay}" ItemsLayout="VerticalList" SelectionMode="None" BackgroundColor="{StaticResource Transparent}" HeightRequest="{Binding SubSubCategoryHeight}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Padding="0,5" BackgroundColor="{StaticResource Transparent}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Frame Grid.Row="0" Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource Transparent}" BackgroundColor="{StaticResource BlueColor}" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill" HeightRequest="60" HasShadow="False">
+                                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+
+                                                <Label Text="{Binding Name}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="FillAndExpand"/>
+                                                <!--<Label Text="{Binding Price}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="End"/>-->
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10" IsVisible="{Binding IsSubsubCategoryVisible}"/>
+
+                    <!--JobRating Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent" IsVisible="{Binding IsJobRating}">
+                        <Label Text="{strings:Translate jobdetail_Jobrating}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <skiarate:RatingView x:Name="workerjobratingview" Count="5" RatingType="Full" ColorOn="#F1C40F" WidthRequest="120" HeightRequest="40" HorizontalOptions="Start" Value="{Binding JobRating}" IsEnabled="False"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10" IsVisible="{Binding IsJobRating}"/>
+
+                    <!--JobReview Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" IsVisible="{Binding IsJobReviewVisible}">
+                        <Label Text="{strings:Translate JobReviewTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                            <Label Text="{Binding MyBooking.JobReview}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand" LineBreakMode="WordWrap"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10" IsVisible="{Binding IsJobReviewVisible}"/>
+
+                    <!--Start DateTime Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent">
+                        <Label Text="{strings:Translate StartDateTimeTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Label Text="{Binding MyBooking.ServiceStartDateTime}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10"/>
+
+                    <!--End DateTime Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent">
+                        <Label Text="{strings:Translate EndDateTimeTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Label Text="{Binding MyBooking.ServiceEndDateTime}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10"/>
+
+                    <!--Floor_Number Field-->
+                    <!--<StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent">
+                        <Label Text="{strings:Translate DetailFloorTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Label Text="{Binding MyBooking.PropertyFloorNumber}" TextColor="{StaticResource Black2Color}" HorizontalOptions="Start"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10"/>-->
+
+                    <!--Apartment_Number Field-->
+                    <!--<StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent">
+                        <Label Text="{strings:Translate DetailApartmentNumberTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Label Text="{Binding MyBooking.PropertyApartmentNumber}" TextColor="{StaticResource Black2Color}" HorizontalOptions="Start"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10"/>-->
+
+                    <!--Building_Code Field-->
+                    <!--<StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent">
+                        <Label Text="{strings:Translate DetailBuildingCodeTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Label Text="{Binding MyBooking.PropertyBuildingCode}" TextColor="{StaticResource Black2Color}" HorizontalOptions="Start"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle1}" Margin="-20,10"/>-->
+
+                    <!--Address Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent">
+                        <Label Text="{strings:Translate AddressTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <!--<Label Text="{Binding MyBooking.PropertyAddress}" TextColor="{StaticResource Black2Color}" HorizontalOptions="Start"/>-->
+                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                            <Label Text="{Binding MyBooking.PropertyAddress}" TextColor="{StaticResource Black2Color}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                            <Image Source="ic_map_marker.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="End" VerticalOptions="Center">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding MapOpenCommand}" NumberOfTapsRequired="1"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" BackgroundColor="Transparent" IsVisible="{Binding IsCheckList}">
+                        <Label Text="{strings:Translate CheckListTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <ListView x:Name="checklistsworker" ItemsSource="{Binding CheckList}" RowHeight="50" HeightRequest="{Binding CheckListHeight}" SeparatorVisibility="None" ItemSelected="Checklistsworker_ItemSelected">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Frame Style="{StaticResource jobrequestframe}" BorderColor="{StaticResource BGColor}" HasShadow="False" CornerRadius="3" Padding="15,0" HorizontalOptions="Fill">
+                                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="Center">
+                                                <Label Text="{Binding CheckListValue}" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+                                                <Image Style="{StaticResource LoginImageStyle}" Source="{Binding CheckListCheck}" HeightRequest="20" WidthRequest="20" HorizontalOptions="End" VerticalOptions="Center">
+                                                    <Image.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.CheckBoxCommand, Source={x:Reference checklistsworker}}" CommandParameter="{Binding .}"/>
+                                                    </Image.GestureRecognizers>
+                                                </Image>
+                                            </StackLayout>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackLayout>
+
+                    <!--#region If Price is not given-->
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10" IsVisible="{Binding IsRefImagesVisible}"/>
+
+                    <!--DescriptionTitle Field-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" IsVisible="{Binding IsRefImagesVisible}">
+                        <Label Text="{strings:Translate ServiceDescriptionTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                        <Label Text="{Binding MyBooking.Description}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>
+                    </StackLayout>
+
+                    <!--Reference Images-->
+                    <StackLayout Spacing="10" HorizontalOptions="Fill" IsVisible="{Binding IsRefImagesVisible}">
+                        <Label Text="{strings:Translate ReferenceImagesTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <CollectionView x:Name="refImagesList" ItemsSource="{Binding ReferenceImagesList}" ItemsLayout="HorizontalList" HeightRequest="110" SelectionMode="Single" SelectedItem="{Binding ReferenceImageSelected}" SelectionChanged="RefImagesList_SelectionChanged">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame CornerRadius="0" HorizontalOptions="Fill" IsClippedToBounds="True" VerticalOptions="Center" Padding="0">
+                                            <Image Source="{Binding ReferenceImages}" HeightRequest="100" WidthRequest="100" Margin="0,0,5,0" Aspect="AspectFill"/>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
+                    </StackLayout>
+
+
+                    <!--#endregion-->
+                </StackLayout>
+            </ScrollView>
+
+
+            <Grid Grid.Row="2">
+                <Button x:Name="startTimerBtn" Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource BlueColor}" HorizontalOptions="FillAndExpand" Text="{strings:Translate STARTTIMER}" Command="{Binding JobDetailCommands}" HeightRequest="60" IsVisible="{Binding IsStartTimerBtn}"/>
+                <Grid HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource BlueColor}" HeightRequest="60" IsVisible="{Binding IsEndTimerBtn}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Orientation="Horizontal" Padding="10,0,0,0" Spacing="10" Grid.Column="0" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource Transparent}">
+                        <Image Source="ic_timer.png" HeightRequest="30" WidthRequest="30" VerticalOptions="Center"/>
+                        <Label Text="{Binding TimerStart}" Style="{StaticResource HomePageLarge}" TextColor="{StaticResource WhiteColor}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"/>
+                        <BoxView Style="{StaticResource VerticalBoxViewStyle}" HeightRequest="40" VerticalOptions="Center" HorizontalOptions="End"/>
+                    </StackLayout>
+                    <Button x:Name="endTimerBtn" Grid.Column="1" Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource BlueColor}" HorizontalOptions="FillAndExpand" Text="{strings:Translate ENDTIMER}" Command="{Binding JobDetailCommands}" HeightRequest="60"/>
+                </Grid>
+                <Button x:Name="completeBtn" Style="{StaticResource ButtonStyle}" BackgroundColor="{StaticResource BlueColor}" HorizontalOptions="FillAndExpand" Text="{strings:Translate COMPLETE}" Command="{Binding JobDetailCommands}" HeightRequest="60" IsVisible="{Binding IsCompleteTimerBtn}"/>
+            </Grid>
+
+            <!--<Grid Grid.RowSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="{Binding IsReferenceImagepopup}">
+                <BoxView BackgroundColor="{StaticResource Black1Color}" Opacity="0.6" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <BoxView.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ImagePopupCloseCommand}"/>
+                    </BoxView.GestureRecognizers>
+                </BoxView>
+                <local:PinchToZoomContainer Padding="0" Margin="0">
+                    <local:PinchToZoomContainer.Content>
+                        <Frame HasShadow="False" BackgroundColor="{StaticResource Transparent}" CornerRadius="0" Padding="0" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" IsClippedToBounds="True">
+                            <Image Source="{Binding ReferenceImage}" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" HeightRequest="250"/>
+                        </Frame>
+                    </local:PinchToZoomContainer.Content>
+                </local:PinchToZoomContainer>
+            </Grid>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

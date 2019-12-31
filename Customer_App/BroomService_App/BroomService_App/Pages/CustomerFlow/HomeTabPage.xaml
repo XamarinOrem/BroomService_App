@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:pages="clr-namespace:BroomService_App.Pages"
+            NavigationPage.HasNavigationBar="False"
+            xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            xmlns:ccEffects="clr-namespace:BroomService_App.CustomControls.Effects"
+            xmlns:plugin="clr-namespace:Plugin.Badge.Abstractions;assembly=Plugin.Badge.Abstractions"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True"
+            BarBackgroundColor="{StaticResource WhiteColor}"
+            x:Name="hometabpage"
+            x:Class="BroomService_App.Pages.HomeTabPage">
+    <pages:HomePage Title="{strings:Translate Home}" IconImageSource="ic_home.png"/>
+    <pages:MyBookingPage Title="{strings:Translate MyBookings}" IconImageSource="ic_booking.png"/>
+    <pages:NotificationPage Title="{strings:Translate Notifications}" IconImageSource="ic_notifications.png" plugin:TabBadge.BadgeText="{Binding BadgeCount}" plugin:TabBadge.BadgeColor="{StaticResource BlueColor}" plugin:TabBadge.BadgeTextColor="{StaticResource BlueColor}" plugin:TabBadge.BadgeFont="5"/>
+    <pages:ProfilePage Title="{strings:Translate Profile}" IconImageSource="ic_profile.png"/>
+
+    <!--<TabbedPage.Effects>
+        <ccEffects:/>
+    </TabbedPage.Effects>-->
+</TabbedPage>

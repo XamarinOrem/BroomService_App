@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:cc="clr-namespace:BroomService_App.CustomControls"
+             BackgroundColor="{StaticResource PageBGColor}"
+             x:Class="BroomService_App.Pages.HomePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:SearchHeader HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <!--Scroll View-->
+            <StackLayout Spacing="20" Grid.Row="1">
+                <!--Welcome to Broom service-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Frame BackgroundColor="{StaticResource WhiteColor}" Padding="20,15,20,25" HasShadow="False">
+                        <Label Text="{strings:Translate WelcomeMsg}" Style="{StaticResource HomePageExtraLargeBold}" LineBreakMode="WordWrap"/>
+                    </Frame>
+                </Grid>
+
+                <!--Property List and Add symbol field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource Transparent}" Spacing="10" Padding="20,0">
+                    <Label Text="{strings:Translate PropertyListTitle}" Style="{StaticResource HomePageSemiLargeBold}" HorizontalOptions="FillAndExpand"/>
+                    <Image Source="ic_plus_red.png" Style="{StaticResource LoginImageStyle}" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AddPropertyCommand}" NumberOfTapsRequired="1"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+
+                <!--Property ListView-->
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <CollectionView x:Name="propertyList" ItemsSource="{Binding PropertyList}" ItemsLayout="VerticalList" SelectedItem="{Binding PropertyTapCommand}" SelectionMode="None" SelectionChanged="PropertyList_SelectionChanged" EmptyView="{strings:Translate NoPropertyFound}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="20,8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame Grid.Row="0" Padding="20" CornerRadius="5" HorizontalOptions="Fill" HasShadow="False" BackgroundColor="{StaticResource WhiteColor}">
+                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
+                                            <Label Text="{Binding Name}" Style="{StaticResource HomePageLarge}" TextColor="{StaticResource BlueColor}"/>
+                                            <StackLayout Orientation="Horizontal" Spacing="5">
+                                                <Label Text="{strings:Translate PropertyTypeTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black3Color}"/>
+                                                <Label Text="{Binding Type}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Image Source="ic_address.png" Style="{StaticResource MenuImageStyle}"/>
+                                                <Label Text="{Binding Address}" Style="{StaticResource HomePageMedium}" />
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0" IsVisible="{Binding ShortTermApartment}">
+                                                <BoxView HeightRequest="14" WidthRequest="14" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                                <Label Text="{strings:Translate ShortTermAirBnbAprtment}" Style="{StaticResource HomePageMedium}"/>
+                                            </StackLayout>
+                                            <Label Text="{strings:Translate ViewDetails}" Style="{StaticResource HomePageML}" TextColor="{StaticResource RejectColor}" HorizontalOptions="End" HorizontalTextAlignment="End">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewDetailCommand, Source={x:Reference propertyList}}" CommandParameter="{Binding .}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+            </StackLayout>
+
+            <!--<ScrollView Grid.Row="1">
+                
+
+            </ScrollView>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

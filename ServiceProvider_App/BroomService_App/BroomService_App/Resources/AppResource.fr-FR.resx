@@ -1,0 +1,804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>À propos de nous</value>
+  </data>
+  <data name="Accept" xml:space="preserve">
+    <value>ACCEPTEZ</value>
+  </data>
+  <data name="AccessProperty" xml:space="preserve">
+    <value>Pour ex. portier / elock / clavier / clé / autre</value>
+  </data>
+  <data name="AccessPropertyTitle" xml:space="preserve">
+    <value>Accès à la propriété (avec détails)</value>
+  </data>
+  <data name="AccessPropertyWithDetails" xml:space="preserve">
+    <value>Accès à la propriété (avec détails)</value>
+  </data>
+  <data name="AddJobRequestBtn" xml:space="preserve">
+    <value>Ajouter une demande d'emploi</value>
+  </data>
+  <data name="AddProperty" xml:space="preserve">
+    <value>Ajouter une propriété</value>
+  </data>
+  <data name="AddPropertyHeaderMsg" xml:space="preserve">
+    <value>Vous pouvez lister autant de propriétés que vous voulez pour chaque type.</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AddressTitle" xml:space="preserve">
+    <value>Adresse</value>
+  </data>
+  <data name="AddressValue" xml:space="preserve">
+    <value>4200 Green Gate Lane</value>
+  </data>
+  <data name="ago" xml:space="preserve">
+    <value>depuis</value>
+  </data>
+  <data name="AlreadyAccountMsg" xml:space="preserve">
+    <value>Vous avez déjà un compte?</value>
+  </data>
+  <data name="ApartmentName" xml:space="preserve">
+    <value>Appartement ABC</value>
+  </data>
+  <data name="ApartmentNumber" xml:space="preserve">
+    <value>Écrivez le numéro d'apt</value>
+  </data>
+  <data name="ApartmentNumberTitle" xml:space="preserve">
+    <value>Numéro d'appartement *</value>
+  </data>
+  <data name="BalconyTitle" xml:space="preserve">
+    <value>Balcon</value>
+  </data>
+  <data name="BathroomCount" xml:space="preserve">
+    <value>Ecrire le nombre de salles de bain</value>
+  </data>
+  <data name="BathroomCountTitle" xml:space="preserve">
+    <value>Nombre de salles de bain</value>
+  </data>
+  <data name="BedroomCount" xml:space="preserve">
+    <value>Inscrivez le nombre de chambres</value>
+  </data>
+  <data name="BedroomCountTitle" xml:space="preserve">
+    <value>Nombre de chambres</value>
+  </data>
+  <data name="BedSize" xml:space="preserve">
+    <value>Taille du lit</value>
+  </data>
+  <data name="BuildingCode" xml:space="preserve">
+    <value>Écrire le code du bâtiment</value>
+  </data>
+  <data name="BuildingCodeTitle" xml:space="preserve">
+    <value>Code de bâtiment *</value>
+  </data>
+  <data name="CancelBtn" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Canceled" xml:space="preserve">
+    <value>ANNULÉ</value>
+  </data>
+  <data name="CategoryNotSelected" xml:space="preserve">
+    <value>Veuillez d'abord choisir la catégorie.</value>
+  </data>
+  <data name="CategoryPickerTitle" xml:space="preserve">
+    <value>Sélectionnez un service</value>
+  </data>
+  <data name="CategorySelectedError" xml:space="preserve">
+    <value>Veuillez sélectionner une catégorie.</value>
+  </data>
+  <data name="CategoryTitle" xml:space="preserve">
+    <value>Un service</value>
+  </data>
+  <data name="changelang_English" xml:space="preserve">
+    <value>Anglaise</value>
+  </data>
+  <data name="changelang_French" xml:space="preserve">
+    <value>Française</value>
+  </data>
+  <data name="changelang_headerTitle" xml:space="preserve">
+    <value>Changer de langue</value>
+  </data>
+  <data name="changelang_Hebrew" xml:space="preserve">
+    <value>Hébreue</value>
+  </data>
+  <data name="changelang_PickerPlaceholder" xml:space="preserve">
+    <value>Choisissez la langue</value>
+  </data>
+  <data name="changelang_Russian" xml:space="preserve">
+    <value>russe</value>
+  </data>
+  <data name="ChangeyourPassword" xml:space="preserve">
+    <value>Changez votre mot de passe</value>
+  </data>
+  <data name="Chat" xml:space="preserve">
+    <value>Bavarder</value>
+  </data>
+  <data name="ChatDetailMessagePlaceholder" xml:space="preserve">
+    <value>Écrivez ici...</value>
+  </data>
+  <data name="ChatListTitle" xml:space="preserve">
+    <value>BAVARDER</value>
+  </data>
+  <data name="CheckListError" xml:space="preserve">
+    <value>Veuillez terminer toutes les taches.</value>
+  </data>
+  <data name="CheckListTitle" xml:space="preserve">
+    <value>Liste de contrôle</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>Ville</value>
+  </data>
+  <data name="CityValue" xml:space="preserve">
+    <value>Baltimore</value>
+  </data>
+  <data name="COMPLETE" xml:space="preserve">
+    <value>ACHEVÉE</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>TERMINÉ</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmez le mot de passe</value>
+  </data>
+  <data name="ConfirmPasswordError" xml:space="preserve">
+    <value>Nouveau mot de passe et Confirmer le mot de passe ne correspondent pas.</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>Contactez nous</value>
+  </data>
+  <data name="ContactUsEmailError" xml:space="preserve">
+    <value>Veuillez entrer email id.</value>
+  </data>
+  <data name="ContactUsMsgError" xml:space="preserve">
+    <value>Veuillez écrivez un message.</value>
+  </data>
+  <data name="ContactUsNameError" xml:space="preserve">
+    <value>Veuillez entrer le nom.</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Pays</value>
+  </data>
+  <data name="CountryCodeError" xml:space="preserve">
+    <value>Veuillez sélectionner le code du pays.</value>
+  </data>
+  <data name="CUSTOMER" xml:space="preserve">
+    <value>CLIENT</value>
+  </data>
+  <data name="CustomerDetailTitle" xml:space="preserve">
+    <value>Détails du client</value>
+  </data>
+  <data name="CustomerName" xml:space="preserve">
+    <value>Nom du client</value>
+  </data>
+  <data name="DateTimeError" xml:space="preserve">
+    <value>Veuillez choisir la date et l'heure.</value>
+  </data>
+  <data name="DateTimeTitle" xml:space="preserve">
+    <value>Date et Heure</value>
+  </data>
+  <data name="DateTimeValue" xml:space="preserve">
+    <value>14/08/2019 à 10h00</value>
+  </data>
+  <data name="day" xml:space="preserve">
+    <value>journée</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>journées</value>
+  </data>
+  <data name="DescriptionPlaceholder" xml:space="preserve">
+    <value>écrivez la description du poste ici ...</value>
+  </data>
+  <data name="DescriptionTitle" xml:space="preserve">
+    <value>La description</value>
+  </data>
+  <data name="DetailApartmentNumberTitle" xml:space="preserve">
+    <value>Numéro d'appartement</value>
+  </data>
+  <data name="DetailBuildingCodeTitle" xml:space="preserve">
+    <value>Code de construction</value>
+  </data>
+  <data name="DetailFloorTitle" xml:space="preserve">
+    <value>Sol</value>
+  </data>
+  <data name="DeviceInfoupdated" xml:space="preserve">
+    <value>Informations sur le périphérique mises à jour avec succès.</value>
+  </data>
+  <data name="DishwasherTitle" xml:space="preserve">
+    <value>Lave-vaisselle</value>
+  </data>
+  <data name="DONE" xml:space="preserve">
+    <value>TERMINÉ</value>
+  </data>
+  <data name="DoneBtn" xml:space="preserve">
+    <value>Terminé</value>
+  </data>
+  <data name="DoormanTitle" xml:space="preserve">
+    <value>Portier</value>
+  </data>
+  <data name="DoubleBeds" xml:space="preserve">
+    <value>Ecrivez le nombre de lits doubles</value>
+  </data>
+  <data name="DoubleBedsTitle" xml:space="preserve">
+    <value>Nombre de lits doubles</value>
+  </data>
+  <data name="DoubleSophaBeds" xml:space="preserve">
+    <value>Ecrire le nombre de lits doubles sopha</value>
+  </data>
+  <data name="DoubleSophaBedsTitle" xml:space="preserve">
+    <value>Nombre de lits doubles Sopha</value>
+  </data>
+  <data name="Duvets" xml:space="preserve">
+    <value>Écrire le numéro de la couette</value>
+  </data>
+  <data name="DuvetSize" xml:space="preserve">
+    <value>Mentionnez la taille de la couette</value>
+  </data>
+  <data name="DuvetSizeTitle" xml:space="preserve">
+    <value>Taille de la couette</value>
+  </data>
+  <data name="DuvetSizeValue" xml:space="preserve">
+    <value>Petit</value>
+  </data>
+  <data name="DuvetsTitle" xml:space="preserve">
+    <value>Nombre de couettes</value>
+  </data>
+  <data name="EditProfileHeaderTitle" xml:space="preserve">
+    <value>EDITER LE PROFIL</value>
+  </data>
+  <data name="ElevatorTitle" xml:space="preserve">
+    <value>Ascenseur</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailValidation" xml:space="preserve">
+    <value>Veuillez entrer un email valide.</value>
+  </data>
+  <data name="EmptyFieldError" xml:space="preserve">
+    <value>S'il vous plaît remplir les enregistrements requis.</value>
+  </data>
+  <data name="EndDateTimeTitle" xml:space="preserve">
+    <value>Date et heure de fin</value>
+  </data>
+  <data name="ENDTIMER" xml:space="preserve">
+    <value>FIN DE LA MINUTERIE</value>
+  </data>
+  <data name="ExceptionDeviceInfo" xml:space="preserve">
+    <value>Une erreur s'est produite lors de la mise à jour des informations sur le périphérique.</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="FloorNumber" xml:space="preserve">
+    <value>Écrivez le numéro de l'étage</value>
+  </data>
+  <data name="FloorTitle" xml:space="preserve">
+    <value>Sol *</value>
+  </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>Mot de passe oublié?</value>
+  </data>
+  <data name="ForgotYourPassword" xml:space="preserve">
+    <value>Mot de passe oublié?</value>
+  </data>
+  <data name="ForgotYourPasswordText" xml:space="preserve">
+    <value>Entrez votre email et nous vous enverrons un lien pour réinitialiser votre mot de passe.</value>
+  </data>
+  <data name="FullAddress" xml:space="preserve">
+    <value>ADRESSE COMPLÈTE</value>
+  </data>
+  <data name="GardenTitle" xml:space="preserve">
+    <value>Jardin</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="hour" xml:space="preserve">
+    <value>heure</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>heures</value>
+  </data>
+  <data name="InProgress" xml:space="preserve">
+    <value>EN COURS</value>
+  </data>
+  <data name="JobDetailChatOption" xml:space="preserve">
+    <value>Bavarder</value>
+  </data>
+  <data name="JobDetailProperty" xml:space="preserve">
+    <value>Propriété ABC</value>
+  </data>
+  <data name="JobDetailServiceCategory" xml:space="preserve">
+    <value>Plomberie</value>
+  </data>
+  <data name="JobDetailsHeaderTitle" xml:space="preserve">
+    <value>DÉTAILS DU POSTE</value>
+  </data>
+  <data name="jobdetail_Jobrating" xml:space="preserve">
+    <value>Évaluation de l'emploi</value>
+  </data>
+  <data name="JobPriceTitle" xml:space="preserve">
+    <value>Prix du travail</value>
+  </data>
+  <data name="JobRequest" xml:space="preserve">
+    <value>DEMANDE D'EMPLOI</value>
+  </data>
+  <data name="JobRequestHeaderTitle" xml:space="preserve">
+    <value>DEMANDE D'EMPLOI</value>
+  </data>
+  <data name="JobReviewTitle" xml:space="preserve">
+    <value>Revue de l'emploi</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nom de famille</value>
+  </data>
+  <data name="LoadingMsg" xml:space="preserve">
+    <value>chargement...</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>S'IDENTIFIER</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Déconnecter</value>
+  </data>
+  <data name="LogoutMsg" xml:space="preserve">
+    <value>Êtes-vous sûr de vous déconnecter?</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="minute" xml:space="preserve">
+    <value>minute</value>
+  </data>
+  <data name="minutes" xml:space="preserve">
+    <value>minutes</value>
+  </data>
+  <data name="month" xml:space="preserve">
+    <value>mois</value>
+  </data>
+  <data name="months" xml:space="preserve">
+    <value>mois</value>
+  </data>
+  <data name="MyBookingHeaderTitle" xml:space="preserve">
+    <value>MES RESERVATIONS</value>
+  </data>
+  <data name="MyBookings" xml:space="preserve">
+    <value>Mes réservations</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Prénom</value>
+  </data>
+  <data name="NameofProperty" xml:space="preserve">
+    <value>Nom de la propriété</value>
+  </data>
+  <data name="NameofPropertyTitle" xml:space="preserve">
+    <value>Nom de la propriété *</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="NewUser" xml:space="preserve">
+    <value>Nouvel utilisateur?</value>
+  </data>
+  <data name="NextBtn" xml:space="preserve">
+    <value>Prochain</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="NoChatListFound" xml:space="preserve">
+    <value>Actuellement, vous n'avez pas de chat.</value>
+  </data>
+  <data name="NoInternetError" xml:space="preserve">
+    <value>Veuillez vérifiez votre connexion internet.</value>
+  </data>
+  <data name="NoJobRequest" xml:space="preserve">
+    <value>Actuellement, vous n'avez aucune réservation.</value>
+  </data>
+  <data name="NoNotificationError" xml:space="preserve">
+    <value>Actuellement, vous n'avez aucune notification.</value>
+  </data>
+  <data name="NoPropertyFound" xml:space="preserve">
+    <value>Actuellement, vous n'avez aucune propriété.</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Les notifications</value>
+  </data>
+  <data name="NotificationsTitle" xml:space="preserve">
+    <value>NOTIFICATIONS</value>
+  </data>
+  <data name="NotificationUserMessage" xml:space="preserve">
+    <value>a accepté votre demande.</value>
+  </data>
+  <data name="NotificationUserMessageBtn" xml:space="preserve">
+    <value>vous a envoyé un devis pour le service d'appartement.</value>
+  </data>
+  <data name="NotificationUserName" xml:space="preserve">
+    <value>Nate Parker</value>
+  </data>
+  <data name="NotificationUserTime" xml:space="preserve">
+    <value>Il y a 8 jours</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Ancien mot de passe</value>
+  </data>
+  <data name="ParkingTitle" xml:space="preserve">
+    <value>Parking</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>EN ATTENDANT</value>
+  </data>
+  <data name="PersonalDetailHeader" xml:space="preserve">
+    <value>DÉTAILS PERSONNELS</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Numéro de téléphone</value>
+  </data>
+  <data name="Pillow" xml:space="preserve">
+    <value>Ecrire le numéro de l'oreiller</value>
+  </data>
+  <data name="PillowsTitle" xml:space="preserve">
+    <value>Nombre d'Oreillers</value>
+  </data>
+  <data name="PoolTitle" xml:space="preserve">
+    <value>bassin</value>
+  </data>
+  <data name="PriceofServices" xml:space="preserve">
+    <value>Prix ​​des services</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="ProfileHeaderTitle" xml:space="preserve">
+    <value>PROFIL</value>
+  </data>
+  <data name="ProfileNameError" xml:space="preserve">
+    <value>Veuillez remplir le prénom et nom.</value>
+  </data>
+  <data name="ProfileUserChangePasswordBtn" xml:space="preserve">
+    <value>Changer le mot de passe</value>
+  </data>
+  <data name="PropertyAddressTitle" xml:space="preserve">
+    <value>Adresse *</value>
+  </data>
+  <data name="PropertyDetailsHeaderTitle" xml:space="preserve">
+    <value>DÉTAILS DE LA PROPRIÉTÉ</value>
+  </data>
+  <data name="propertyDuvetType_Large" xml:space="preserve">
+    <value>Grande</value>
+  </data>
+  <data name="propertyDuvetType_Medium" xml:space="preserve">
+    <value>Moyen</value>
+  </data>
+  <data name="propertyDuvetType_Small" xml:space="preserve">
+    <value>Petite</value>
+  </data>
+  <data name="PropertyListTitle" xml:space="preserve">
+    <value>LISTE DES PROPRIETES</value>
+  </data>
+  <data name="PropertyPickerTitle" xml:space="preserve">
+    <value>Sélectionner une propriété</value>
+  </data>
+  <data name="PropertySize" xml:space="preserve">
+    <value>Mentionnez la taille de la propriété</value>
+  </data>
+  <data name="PropertySizeTitle" xml:space="preserve">
+    <value>Taille de la propriété</value>
+  </data>
+  <data name="PropertyTitle" xml:space="preserve">
+    <value>Propriété</value>
+  </data>
+  <data name="PropertyType" xml:space="preserve">
+    <value>Maison \ Appartement</value>
+  </data>
+  <data name="PropertyTypeTitle" xml:space="preserve">
+    <value>Type de propriété:</value>
+  </data>
+  <data name="propertyType_Apartment" xml:space="preserve">
+    <value>Appartement</value>
+  </data>
+  <data name="propertyType_Duplex" xml:space="preserve">
+    <value>Duplex</value>
+  </data>
+  <data name="propertyType_Penthouse" xml:space="preserve">
+    <value>Penthouse</value>
+  </data>
+  <data name="propertyType_Villa" xml:space="preserve">
+    <value>Villa</value>
+  </data>
+  <data name="Queenbeds" xml:space="preserve">
+    <value>Ecrire le nombre de lits queen</value>
+  </data>
+  <data name="QueenbedsTitle" xml:space="preserve">
+    <value>Nombre de lits Queen</value>
+  </data>
+  <data name="QueenSize" xml:space="preserve">
+    <value>Taille Queen</value>
+  </data>
+  <data name="ReferenceImagesTitle" xml:space="preserve">
+    <value>Images de référence</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registre</value>
+  </data>
+  <data name="RegisterHeaderMsg" xml:space="preserve">
+    <value>Créez votre compte pour utiliser le service de balai.</value>
+  </data>
+  <data name="RegisterServerError" xml:space="preserve">
+    <value>Veuillez saisir votre nom, email, mot de passe, numéro de téléphone, pays et code du pays.</value>
+  </data>
+  <data name="Reject" xml:space="preserve">
+    <value>REJETER</value>
+  </data>
+  <data name="RequiredFieldError" xml:space="preserve">
+    <value>Veuillez entrer les champs obligatoires.</value>
+  </data>
+  <data name="SaveBtn" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="SearchProperty" xml:space="preserve">
+    <value>Rechercher une propriété</value>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>seconde</value>
+  </data>
+  <data name="seconds" xml:space="preserve">
+    <value>secondes</value>
+  </data>
+  <data name="SendBtn" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="SendQuote" xml:space="preserve">
+    <value>ENVOYER UN DEVIS</value>
+  </data>
+  <data name="ServerError" xml:space="preserve">
+    <value>Erreur du serveur.</value>
+  </data>
+  <data name="ServiceCategoryHeaderTitle" xml:space="preserve">
+    <value>CATEGORIES DE SERVICES</value>
+  </data>
+  <data name="ServiceDescriptionTitle" xml:space="preserve">
+    <value>Description du service</value>
+  </data>
+  <data name="SERVICEPROVIDER" xml:space="preserve">
+    <value>FOURNISSEUR DE SERVICES</value>
+  </data>
+  <data name="ServiceProviderName" xml:space="preserve">
+    <value>Nate Parker</value>
+  </data>
+  <data name="ServiceProviderNameTitle" xml:space="preserve">
+    <value>Nom du fournisseur de service</value>
+  </data>
+  <data name="ServiceSubCategoryHeaderTitle" xml:space="preserve">
+    <value>SOUS-CATEGORIES DE SERVICES</value>
+  </data>
+  <data name="ServiceSubSubCategoryHeaderTitle" xml:space="preserve">
+    <value>SOUS-SOUS-CATEGORIES DE SERVICES</value>
+  </data>
+  <data name="ServiceTime" xml:space="preserve">
+    <value>Après midi</value>
+  </data>
+  <data name="ServiceType" xml:space="preserve">
+    <value>Service de plomberie</value>
+  </data>
+  <data name="ShortTermAirBnbAprtment" xml:space="preserve">
+    <value>Appartement AirBnb à court terme</value>
+  </data>
+  <data name="SignUp" xml:space="preserve">
+    <value>S'INSCRIRE</value>
+  </data>
+  <data name="Singlebeds" xml:space="preserve">
+    <value>Ecrire le nombre de lits simples</value>
+  </data>
+  <data name="SinglebedsTitle" xml:space="preserve">
+    <value>Nombre de lits simples</value>
+  </data>
+  <data name="SingleSophabeds" xml:space="preserve">
+    <value>Écrivez le nombre de lits simples sopha</value>
+  </data>
+  <data name="SingleSophabedsTitle" xml:space="preserve">
+    <value>Nombre de lits simples Sopha</value>
+  </data>
+  <data name="StartDateTimeTitle" xml:space="preserve">
+    <value>Date et heure de début</value>
+  </data>
+  <data name="STARTJOB" xml:space="preserve">
+    <value>COMMENCER LE TRAVAIL</value>
+  </data>
+  <data name="STARTTIMER" xml:space="preserve">
+    <value>DÉMARRAGE</value>
+  </data>
+  <data name="SubCategoryError" xml:space="preserve">
+    <value>Veuillez sélectionner au moins un sous-service</value>
+  </data>
+  <data name="SubCategoryTitle" xml:space="preserve">
+    <value>Sous-Service</value>
+  </data>
+  <data name="TermandConditions" xml:space="preserve">
+    <value>Termes et Conditions</value>
+  </data>
+  <data name="TermConditionError" xml:space="preserve">
+    <value>Veuillez accepter les termes et conditions.</value>
+  </data>
+  <data name="TermNcondtionMsg" xml:space="preserve">
+    <value>J'ai lu et je suis d'accord avec le</value>
+  </data>
+  <data name="ToiletsCount" xml:space="preserve">
+    <value>Inscrivez le nombre de toilettes</value>
+  </data>
+  <data name="ToiletsCountTitle" xml:space="preserve">
+    <value>Nombre de toilettes</value>
+  </data>
+  <data name="TypeofProperty" xml:space="preserve">
+    <value>Type de propriété</value>
+  </data>
+  <data name="TypeofPropertyTitle" xml:space="preserve">
+    <value>Type de propriété *</value>
+  </data>
+  <data name="TypeOfServiceTitle" xml:space="preserve">
+    <value>Type de service</value>
+  </data>
+  <data name="Upcoming" xml:space="preserve">
+    <value>PROCHAIN</value>
+  </data>
+  <data name="UpdateBtn" xml:space="preserve">
+    <value>Mise à jour</value>
+  </data>
+  <data name="UpdatePropertyPageTitle" xml:space="preserve">
+    <value>Mettre à jour la propriété</value>
+  </data>
+  <data name="ViewDetails" xml:space="preserve">
+    <value>Voir les détails&gt;</value>
+  </data>
+  <data name="ViewProfile" xml:space="preserve">
+    <value>Voir le profil</value>
+  </data>
+  <data name="WelcomeMsg" xml:space="preserve">
+    <value>Bienvenue au service de balai!</value>
+  </data>
+  <data name="WelcomeToBroomService" xml:space="preserve">
+    <value>Bienvenue au service de balai!</value>
+  </data>
+  <data name="WORKER" xml:space="preserve">
+    <value>TRAVAILLEUR</value>
+  </data>
+  <data name="Writehere" xml:space="preserve">
+    <value>Ecrire ici...</value>
+  </data>
+  <data name="year" xml:space="preserve">
+    <value>année</value>
+  </data>
+  <data name="years" xml:space="preserve">
+    <value>années</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="Zipcode" xml:space="preserve">
+    <value>Code postal</value>
+  </data>
+</root>

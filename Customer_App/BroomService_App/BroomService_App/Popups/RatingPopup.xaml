@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:rating="clr-namespace:Syncfusion.SfRating.XForms;assembly=Syncfusion.SfRating.XForms"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 xmlns:skiarate="clr-namespace:SkiaRate;assembly=SkiaRate.Forms"
+                 x:Class="BroomService_App.Popups.RatingPopup">
+    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+        <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Transparent">
+            <BoxView.GestureRecognizers>
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnCloseButtonTapped"/>
+            </BoxView.GestureRecognizers>
+        </BoxView>
+        <AbsoluteLayout VerticalOptions="CenterAndExpand" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" Padding="0" Margin="40,0,40,0">
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Transparent">
+                <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=1,Constant=0}" Margin="0,0,0,0" VerticalOptions="Center" HorizontalOptions="Fill">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout x:Name="FrameContainer" BackgroundColor="Transparent"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0" Spacing="0">
+                        <Frame Grid.Row="0" Grid.Column="0" Padding="0" CornerRadius="10" BackgroundColor="#ECECEC">
+                            <StackLayout Spacing="0">
+                                <StackLayout IsClippedToBounds="True" Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#06487D">
+                                    <Label TextColor="White" Text="{strings:Translate Rating}" Margin="10" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>
+                                </StackLayout>
+
+                                <!--#region Service Provider rating-->
+
+                                <StackLayout x:Name="customerratingview" Spacing="0">
+                                    <!--<Image x:Name="touserpic" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>-->
+                                    <Label TextColor="Black" Text="{strings:Translate ServiceProviderrating}" VerticalOptions="Center" Margin="25,15,0,15" Style="{StaticResource HomePageLargeBold}" FontSize="19" HorizontalOptions="Start"/>
+                                    <!--<Label x:Name="tousername" TextColor="Black" Margin="25,10" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="CenterAndExpand"/>-->
+
+                                    <!--<rating:SfRating ValueChanged="SPRating_ValueChanged" ItemCount="5" Precision="Standard" ItemSize="30" WidthRequest="190" ItemSpacing="10" HorizontalOptions="CenterAndExpand">
+                                        <rating:SfRating.RatingSettings>
+                                            <rating:SfRatingSettings RatedFill="#EA9C39" UnRatedFill="#BDBDBD" RatedStrokeWidth="0" 
+                                                     UnRatedStrokeWidth="0" />
+                                        </rating:SfRating.RatingSettings>
+                                    </rating:SfRating>-->
+
+                                    <skiarate:RatingView x:Name="userratingview" Count="5" RatingType="Full" ColorOn="#F1C40F" WidthRequest="190" HeightRequest="50" HorizontalOptions="Center"/>
+                                    
+                                    <Label TextColor="Black" Text="{strings:Translate rating_comments}" Margin="25,10,0,0" FontSize="Medium" VerticalOptions="Start" Style="{StaticResource HomePageMediumBold}" HorizontalOptions="Start"/>
+
+                                    <Frame Padding="10" Margin="25,10,25,0" CornerRadius="12" HasShadow="false" BorderColor="#DCDCDC" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                        <Editor HorizontalOptions="FillAndExpand" TextColor="Black" FontSize="Medium" x:Name="spComment" Placeholder="{strings:Translate rating_comments_placeholder}" BackgroundColor="Transparent" HeightRequest="100"/>
+                                    </Frame>
+                                </StackLayout>
+                                <!--#endregion-->
+
+                                <!--#region Service Provider Job rating-->
+
+                                <!--<Image x:Name="touserpic" Aspect="AspectFit" HeightRequest="100" WidthRequest="100" HorizontalOptions="CenterAndExpand" Margin="0,10,0,0"/>-->
+                                <Label TextColor="Black" Text="{strings:Translate ServiceProviderJobrating}" VerticalOptions="Center" Margin="25,15,0,15" Style="{StaticResource HomePageLargeBold}" FontSize="19" HorizontalOptions="Start"/>
+
+                                <!--<rating:SfRating ValueChanged="JobRating_ValueChanged" ItemCount="5" Precision="Standard" ItemSize="30" WidthRequest="190" ItemSpacing="10" HorizontalOptions="CenterAndExpand">
+                                    <rating:SfRating.RatingSettings>
+                                        <rating:SfRatingSettings RatedFill="#EA9C39" UnRatedFill="#BDBDBD" RatedStrokeWidth="0" 
+                                                     UnRatedStrokeWidth="0" />
+                                    </rating:SfRating.RatingSettings>
+                                </rating:SfRating>-->
+
+                                <skiarate:RatingView x:Name="jobratingview" Count="5" RatingType="Full" ColorOn="#F1C40F" WidthRequest="190" HeightRequest="30" HorizontalOptions="Center"/>
+                                
+                                <Label TextColor="Black" Text="{strings:Translate rating_comments}" Margin="25,10,0,0" FontSize="Medium" VerticalOptions="Start" Style="{StaticResource HomePageMediumBold}" HorizontalOptions="Start"/>
+
+                                <Frame Padding="10" Margin="25,10,25,0" CornerRadius="12" HasShadow="false" BorderColor="#DCDCDC" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                                    <Editor HorizontalOptions="FillAndExpand" TextColor="Black" FontSize="Medium" x:Name="spJobComment" Placeholder="{strings:Translate rating_comments_placeholder}" BackgroundColor="Transparent" HeightRequest="100"/>
+                                </Frame>
+                                <!--#endregion-->
+                                <Button x:Name="ratingsubmitbtn" BackgroundColor="{StaticResource BlueColor}" Text="{strings:Translate SubmitReview}" FontAttributes="Bold" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand" Margin="0,15,0,0" HeightRequest="50" TextColor="White" FontSize="Medium" Clicked="Submit_Button_Clicked" BorderColor="Transparent"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+
+                    <Image Source="ic_popup_close.png" HeightRequest="30" WidthRequest="30"  HorizontalOptions="End"  VerticalOptions="Start" TranslationX="15" TranslationY="-15">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnCloseButtonTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </StackLayout>
+        </AbsoluteLayout>
+    </Grid>
+</pages:PopupPage>

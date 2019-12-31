@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             xmlns:img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True"
+NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource PageBGColor}"
+             x:Class="BroomService_App.Pages.ProfilePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:MenuIconwithTitleHeader HorizontalOptions="FillAndExpand" TitleText="{strings:Translate ProfileHeaderTitle}" RightIconImage="ic_edit.png"/>
+            </Frame>
+
+            <!--Scroll View-->
+            <ScrollView Grid.Row="1">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20" BackgroundColor="{StaticResource WhiteColor}">
+                    <!--Profile User Image-->
+                    <img:CircleImage x:Name="profileUserImg" Source="{Binding ProfileUserImg}"  Style="{StaticResource ProfileUserImage}" HorizontalOptions="CenterAndExpand" BorderColor="{StaticResource Black1Color}" BorderThickness="1" Margin="0,20,0,0" Aspect="AspectFill"/>
+
+                    <!--<Image x:Name="profileUserImg" Source="user_img.png" Style="{StaticResource ProfileUserImage}"  
+                   HorizontalOptions="CenterAndExpand"   Aspect="AspectFill"  Margin="0,20,0,0"/>-->
+
+
+                    <!--Profile UserName Field-->
+                    <Label Text="{Binding ProfileUserName}" Style="{StaticResource BoldHeaderLabelStyle}" FontSize="25"
+                            VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                    <Label Text="{strings:Translate PersonalDetailHeader}" Style="{StaticResource BoldHeaderLabelStyle}" FontSize="25"
+                            VerticalTextAlignment="Center" HorizontalOptions="Start" Margin="20,10,20,10"/>
+
+                    <!--FirstName Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,10,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_profile_name.png"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{strings:Translate FirstName}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            <Label Text="{Binding ProfileUserFirstName}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}"/>
+                            <!--<Entry Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate FirstName}"/>-->
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                    <!--LastName Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,10,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_profile_name.png"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{strings:Translate LastName}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            <Label Text="{Binding ProfileUserLastName}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}"/>
+                            <!--<Entry Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate LastName}"/>-->
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                    <!--Email Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,10,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_profile_mail.png"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{strings:Translate Email}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            <Label Text="{Binding ProfileUserEmail}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}"/>
+                            <!--<Entry Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Email}"/>-->
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                    <!--Phone Number Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,10,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_profile_phone.png"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{strings:Translate PhoneNumber}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                <Label Text="{Binding CountryCode}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}"/>
+                                <BoxView BackgroundColor="{StaticResource Black2Color}" WidthRequest="1" VerticalOptions="Center" HeightRequest="20"/>
+                                <Label Text="{Binding ProfileUserPhoneNumber}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}"/>
+                            </StackLayout>
+                            <!--<Entry Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Email}"/>-->
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                    <!--Zipcode Field-->
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,10,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_profile_zip.png"/>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{strings:Translate Zipcode}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            <Label Text="{Binding ProfileUserZipCode}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}"/>
+                            <!--<Entry Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate ProfileUserZipCode}"/>-->
+                        </StackLayout>
+                    </StackLayout>
+
+                    <!--Done Button Field-->
+                    <Button Text="{strings:Translate ProfileUserChangePasswordBtn}" Command="{Binding ChangePasswordCommand}" Style="{StaticResource ButtonStyle}"  BackgroundColor="{StaticResource BlueColor}" HeightRequest="50" HorizontalOptions="Fill" Margin="50,20" CornerRadius="25" TextColor="{StaticResource WhiteColor}" FontSize="Medium"/>
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

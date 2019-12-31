@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True"
+                  xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+                   xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="BroomService_App.Pages.AboutUsPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:BackArrowHeader TitleText="{strings:Translate AboutUs}" HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <WebView x:Name="aboutwebView" Grid.Row="1" HorizontalOptions="Fill" VerticalOptions="Fill" Navigating="WebView_Navigating" Navigated="WebView_Navigated"/>
+            <!--<ScrollView Grid.Row="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="{StaticResource WhiteColor}" Padding="20">
+                    <Label Text="{Binding AboutUsText}" x:Name="lblAbout" Style="{StaticResource LabelStyle}" TextColor="{StaticResource Black2Color}"/>
+                </StackLayout>
+            </ScrollView>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

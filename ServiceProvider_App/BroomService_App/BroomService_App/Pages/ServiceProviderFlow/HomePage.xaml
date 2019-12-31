@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             xmlns:img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BackgroundColor="{StaticResource PageBGColor}"
+             x:Class="BroomService_App.Pages.ServiceProviderFlow.HomePage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:SearchHeaderWithRightIcon HorizontalOptions="FillAndExpand" RightIconImage="ic_home_notification.png"/>
+            </Frame>
+
+            <!--Scroll View-->
+            <StackLayout Spacing="20" Grid.Row="1">
+                <!--Welcome to Broom service-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Frame BackgroundColor="{StaticResource WhiteColor}" Padding="20,15,20,25" HasShadow="False">
+                        <Label Text="{strings:Translate WelcomeMsg}" Style="{StaticResource HomePageExtraLargeBold}" LineBreakMode="WordWrap"/>
+                    </Frame>
+                </Grid>
+
+                <!--Booking Status ListView-->
+                <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                    <StackLayout Orientation="Horizontal" Padding="20,0,20,0" Spacing="10">
+                        <Button Text="{strings:Translate Pending}" Style="{StaticResource HomePageMedium}" TextColor="{Binding PendingtextColor}" BackgroundColor="{Binding PendingBgColor}" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding BookingStatusCommand}" CommandParameter="Pending" Padding="40,0" HeightRequest="50">
+                            <Button.BorderRadius >
+                                <OnPlatform x:TypeArguments="x:Int32" iOS = "20" Android = "25"/>
+                            </Button.BorderRadius>
+                        </Button>
+                        <Button Text="{strings:Translate InProgress}" Style="{StaticResource HomePageMedium}" TextColor="{Binding InprogresstextColor}" BackgroundColor="{Binding InprogressBgColor}" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding BookingStatusCommand}" CommandParameter="Inprogress" Padding="40,0" HeightRequest="50">
+                            <Button.BorderRadius >
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="25"  />
+                        </Button.BorderRadius>
+                        </Button>
+                        <Button Text="{strings:Translate Completed}" Style="{StaticResource HomePageMedium}" TextColor="{Binding CompletedtextColor}" BackgroundColor="{Binding CompletedBgColor}" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding BookingStatusCommand}" CommandParameter="Completed" Padding="40,0" HeightRequest="50">
+                            <Button.BorderRadius >
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="25"  />
+                        </Button.BorderRadius>
+                        </Button>
+                        <Button Text="{strings:Translate Canceled}" Style="{StaticResource HomePageMedium}" TextColor="{Binding CanceledtextColor}" BackgroundColor="{Binding CanceledBgColor}" VerticalOptions="Center" HorizontalOptions="Center" Command="{Binding BookingStatusCommand}" CommandParameter="Canceled" Padding="40,0" HeightRequest="50" CornerRadius="25">
+                            <Button.BorderRadius >
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="20"
+                                Android ="25"  />
+                        </Button.BorderRadius>
+                        </Button>
+                    </StackLayout>
+                </ScrollView>
+
+                <!--Property List and Add symbol field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="{StaticResource Transparent}" Spacing="10" Padding="20,0">
+                    <Label Text="{strings:Translate MyBookingHeaderTitle}" Style="{StaticResource HomePageLargeBold}" HorizontalOptions="FillAndExpand"/>
+                </StackLayout>
+
+                <!--MyBooking ListView-->
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <CollectionView x:Name="bookingList" ItemsSource="{Binding BookingList}" ItemsLayout="VerticalList" SelectedItem="{Binding BookingListTap}" SelectionMode="None" SelectionChanged="BookingList_SelectionChanged" EmptyView="{strings:Translate NoJobRequest}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Padding="20,8">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame Grid.Row="0" Padding="20" CornerRadius="5" HorizontalOptions="Fill" HasShadow="False" BackgroundColor="{StaticResource WhiteColor}">
+                                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="10">
+                                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="5">
+                                                <Label Text="{Binding CategoryName}" Style="{StaticResource HomePageMediumBold}" VerticalOptions="Center" VerticalTextAlignment="Center" />
+                                                <Label Text="{strings:Translate ViewDetails}" Style="{StaticResource HomePageML}" FontSize="17" TextColor="{StaticResource RejectColor}" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" VerticalOptions="Center" VerticalTextAlignment="Center" WidthRequest="150">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Command="{Binding Path=BindingContext.ViewDetailCommand, Source={x:Reference bookingList}}" CommandParameter="{Binding .}"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal" Spacing="8">
+                                                <img:CircleImage Source="{Binding CustomerImage}" Style="{StaticResource JobDetailCircleImageStyle}" VerticalOptions="Center" Aspect="AspectFill"/>
+                                                <StackLayout Orientation="Vertical" Spacing="0">
+                                                    <Label Text="{Binding CustomerName}" Style="{StaticResource HomePageML}" TextColor="{StaticResource BlueColor}"/>
+                                                    <Label Text="{strings:Translate CustomerName}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}" VerticalOptions="Start"/>
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                            <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,0"/>
+
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Image Source="ic_calendar.png" Style="{StaticResource LoginImageStyle}"/>
+                                                <Label Text="{Binding ServiceStartDate}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>
+                                                <BoxView HeightRequest="20" WidthRequest="1" BackgroundColor="{StaticResource Black1Color}"/>
+                                                <Label Text="{Binding ServiceStartTime}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Horizontal" Spacing="10">
+                                                <Image Source="ic_address.png" Style="{StaticResource LoginImageStyle}"/>
+                                                <Label Text="{Binding PropertyAddress}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black2Color}"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+
+            </StackLayout>
+
+            <!--<ScrollView Grid.Row="1">
+                
+
+            </ScrollView>-->
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

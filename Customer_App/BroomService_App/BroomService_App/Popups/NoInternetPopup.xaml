@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:adc="clr-namespace:BroomService_App.Repository"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             x:Class="BroomService_App.Popups.NoInternetPopup">
+    <StackLayout BackgroundColor="Transparent" Padding="25">
+        <StackLayout BackgroundColor="White" HorizontalOptions="CenterAndExpand" Spacing="10" VerticalOptions="CenterAndExpand" Padding="15" Margin="0">
+            <Label Text="{strings:Translate connection_failed}" FontSize="25" HorizontalTextAlignment="Start" HorizontalOptions="CenterAndExpand" TextColor="Black"
+                   FontFamily="{x:Static adc:App_FontFamilies.MediumFont}" StyleId="{x:Static adc:App_FontFamilies.MediumFont}"/>
+
+            <Label Text="{strings:Translate connection_failed_message}" FontSize="Medium" 
+                                LineHeight="1.5" HorizontalTextAlignment="Start" HorizontalOptions="StartAndExpand" TextColor="Gray"
+                   FontFamily="{x:Static adc:App_FontFamilies.RegularFont}" StyleId="{x:Static adc:App_FontFamilies.RegularFont}"/>
+
+            <Button Text="{strings:Translate ok}" TextColor="Black" BackgroundColor="Transparent" BorderRadius="0" 
+                    FontFamily="{x:Static adc:App_FontFamilies.MediumFont}" StyleId="{x:Static adc:App_FontFamilies.MediumFont}"
+                FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center" Clicked="Button_Clicked"></Button>
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

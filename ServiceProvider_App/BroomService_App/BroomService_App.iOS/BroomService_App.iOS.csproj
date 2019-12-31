@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{85B6C52A-C2FC-4268-850D-79FDE11C8D2C}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BroomService_App.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>BroomService_App.iOS</AssemblyName>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DefineConstants>__IOS__;__MOBILE__;__UNIFIED__;</DefineConstants>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>x86_64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignProvision>
+    </CodesignProvision>
+    <CodesignProvision>
+    </CodesignProvision>
+    <MtouchFloat32>
+    </MtouchFloat32>
+    <MtouchEnableSGenConc>
+    </MtouchEnableSGenConc>
+    <OnDemandResourcesInitialInstallTags>
+    </OnDemandResourcesInitialInstallTags>
+    <OnDemandResourcesPrefetchOrder>
+    </OnDemandResourcesPrefetchOrder>
+    <OnDemandResourcesInitialInstallTags>
+    </OnDemandResourcesInitialInstallTags>
+    <OnDemandResourcesPrefetchOrder>
+    </OnDemandResourcesPrefetchOrder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <NoStdLib>false</NoStdLib>
+    <PlatformTarget>anycpu</PlatformTarget>
+    <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchArch>ARM64</MtouchArch>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <CrashReportingDelay>-1</CrashReportingDelay>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <OnDemandResourcesInitialInstallTags>
+    </OnDemandResourcesInitialInstallTags>
+    <MtouchExtraArgs>-v -v -v -v</MtouchExtraArgs>
+    <OnDemandResourcesInitialInstallTags>
+    </OnDemandResourcesInitialInstallTags>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <BuildIpa>True</BuildIpa>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>none</DebugType>
+    <Optimize>True</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>False</ConsolePause>
+    <MtouchArch>ARM64</MtouchArch>
+    <CodesignProvision>BSCrew_AppStore_Distribution_Profile</CodesignProvision>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CustomRenderers\ZoomableScrollView_iOS.cs" />
+    <Compile Include="DependencyInterface\GetTimeStamp_iOS.cs" />
+    <Compile Include="DependencyInterface\Locale_iOS.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <BundleResource Include="Resources\fonts\IBMPlexSans-Regular.otf" />
+    <BundleResource Include="Resources\fonts\Raleway-Bold.ttf" />
+    <BundleResource Include="Resources\ic_next_btn.png" />
+    <BundleResource Include="Resources\ic_drawer_logout.png" />
+    <BundleResource Include="Resources\user_img.png" />
+    <BundleResource Include="Resources\ic_drop_arrow.png" />
+    <BundleResource Include="Resources\ic_green_tick.png" />
+    <BundleResource Include="Resources\ic_property.png" />
+    <BundleResource Include="Resources\ic_notifications.png" />
+    <BundleResource Include="Resources\ic_calendar.png" />
+    <BundleResource Include="Resources\ic_drawer_terms.png" />
+    <BundleResource Include="Resources\ic_register_check.png" />
+    <BundleResource Include="Resources\ic_profile_name.png" />
+    <BundleResource Include="Resources\ic_message.png" />
+    <BundleResource Include="Resources\ic_drawer_chat.png" />
+    <BundleResource Include="Resources\ic_booking_selected.png" />
+    <BundleResource Include="Resources\ic_home.png" />
+    <BundleResource Include="Resources\ic_tab_chat_active.png" />
+    <BundleResource Include="Resources\ic_drawer_menu.png" />
+    <BundleResource Include="Resources\ic_green_tick_unslct.png" />
+    <BundleResource Include="Resources\ic_timer.png" />
+    <BundleResource Include="Resources\ic_cheked.png" />
+    <BundleResource Include="Resources\ic_plus.png" />
+    <BundleResource Include="Resources\referenceImage.jpg" />
+    <BundleResource Include="Resources\ic_lock.png" />
+    <BundleResource Include="Resources\ic_profile_zip.png" />
+    <BundleResource Include="Resources\ic_tab_chat.png" />
+    <BundleResource Include="Resources\ic_profile.png" />
+    <BundleResource Include="Resources\ic_register_company.png" />
+    <BundleResource Include="Resources\ic_uncheked.png" />
+    <BundleResource Include="Resources\ic_home_selected.png" />
+    <BundleResource Include="Resources\ic_mail.png" />
+    <BundleResource Include="Resources\ic_forgot_close.png" />
+    <BundleResource Include="Resources\contact.png" />
+    <BundleResource Include="Resources\broom_bg.jpg" />
+    <BundleResource Include="Resources\ic_notifications_selected.png" />
+    <BundleResource Include="Resources\ic_name.png" />
+    <BundleResource Include="Resources\ic_cancel.png" />
+    <BundleResource Include="Resources\ic_edit.png" />
+    <BundleResource Include="Resources\ic_register_profilepic.png" />
+    <BundleResource Include="Resources\ic_register_phone.png" />
+    <BundleResource Include="Resources\ic_white_arrow.png" />
+    <BundleResource Include="Resources\ic_address.png" />
+    <BundleResource Include="Resources\ic_plus_red.png" />
+    <BundleResource Include="Resources\ic_drawer_contact.png" />
+    <BundleResource Include="Resources\ic_search.png" />
+    <BundleResource Include="Resources\ic_property_selected.png" />
+    <BundleResource Include="Resources\ic_view_details.png" />
+    <BundleResource Include="Resources\ic_save.png" />
+    <BundleResource Include="Resources\ic_back.png" />
+    <BundleResource Include="Resources\ic_send.png" />
+    <BundleResource Include="Resources\ic_chat.png" />
+    <BundleResource Include="Resources\ic_app_icon.png" />
+    <BundleResource Include="Resources\ic_profile_phone.png" />
+    <BundleResource Include="Resources\ic_date.png" />
+    <BundleResource Include="Resources\ic_booking.png" />
+    <BundleResource Include="Resources\ic_register_city.png" />
+    <BundleResource Include="Resources\ic_drawer_about.png" />
+    <BundleResource Include="Resources\ic_property_edit.png" />
+    <BundleResource Include="Resources\ic_profile_mail.png" />
+    <BundleResource Include="Resources\ic_home_notification.png" />
+    <BundleResource Include="Resources\ic_user_notification.png" />
+    <BundleResource Include="Resources\ic_drawer_close.png" />
+    <BundleResource Include="Resources\splash_logo.png" />
+    <BundleResource Include="Resources\logo_change_password.png" />
+    <BundleResource Include="Resources\splash_bg.png" />
+    <BundleResource Include="Resources\ic_profile_selected.png" />
+    <BundleResource Include="Resources\ic_register_zip.png" />
+    <BundleResource Include="Resources\forget.png" />
+    <BundleResource Include="Resources\splash.png" />
+    <BundleResource Include="GoogleService-Info.plist" />
+    <Compile Include="CustomRenderers\FontEntryRenderer_iOS.cs" />
+    <Compile Include="CustomRenderers\FontEditorRenderer_iOS.cs" />
+    <BundleResource Include="Resources\fonts\IBMPlexSans-Medium.otf" />
+    <Compile Include="CustomRenderers\CPickerRender.cs" />
+    <Compile Include="CustomRenderers\CustomPickerRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-20%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-20%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-29%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-29%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-40%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-40%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-60%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-60%403x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-20.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-20%402x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-29.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-29%402x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-40.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-40%402x-1.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-76.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-76%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\icon-83.5%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\iTunesArtwork%402x.png">
+      <Visible>false</Visible>
+    </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs">
+      <Version>7.0.30</Version>
+    </PackageReference>
+    <PackageReference Include="HockeySDK.Xamarin">
+      <Version>5.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.Badge">
+      <Version>2.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Plugin.FirebasePushNotification">
+      <Version>2.3.6</Version>
+    </PackageReference>
+    <PackageReference Include="Rg.Plugins.Popup">
+      <Version>1.2.0.223</Version>
+    </PackageReference>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.6.292</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Connectivity">
+      <Version>3.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugin.Media">
+      <Version>4.0.1.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>3.0.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Analytics">
+      <Version>6.0.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.CloudMessaging">
+      <Version>4.1.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Core">
+      <Version>6.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.Database">
+      <Version>6.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Firebase.iOS.InstanceID">
+      <Version>4.2.1</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.947036" />
+    <PackageReference Include="XF.Material">
+      <Version>1.5.4</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Build.Download">
+      <Version>0.4.11</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\BroomService_App\BroomService_App.csproj">
+      <Project>{5A88D7FF-74BA-4807-A1D7-18052FD0BEF8}</Project>
+      <Name>BroomService_App</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\d_roomservice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_map_marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\whiteleftarrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_language.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_property_details.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_property_details%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_property_details%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+  </ItemGroup>
+</Project>

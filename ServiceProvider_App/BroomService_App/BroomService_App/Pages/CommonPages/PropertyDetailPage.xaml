@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             xmlns:img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             BackgroundColor="{StaticResource PageBGColor}"
+             x:Class="BroomService_App.Pages.PropertyDetailPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:BackArrowHeader TitleText="{strings:Translate PropertyDetailsHeaderTitle}" HorizontalOptions="FillAndExpand"/>
+            </Frame>
+
+            <!--Scroll View-->
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20" Spacing="20">
+                    <!--Property List and Add symbol field-->
+                    <Label Text="{strings:Translate PropertyDetailsHeaderTitle}" Style="{StaticResource HomePageLargeBold}" HorizontalOptions="FillAndExpand"/>
+                    
+                    <!--Property list-->
+                    <Grid Padding="0,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Frame Grid.Row="0" Padding="20" CornerRadius="5" HorizontalOptions="Fill" HasShadow="False" BackgroundColor="{StaticResource WhiteColor}">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Vertical" Spacing="5">
+                                <Label Text="{Binding PropertyDataModel.Name}" Style="{StaticResource HomePageLarge}" TextColor="{StaticResource BlueColor}"/>
+                                <StackLayout Orientation="Horizontal" Spacing="5">
+                                    <Label Text="{strings:Translate PropertyTypeTitle}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black3Color}"/>
+                                    <Label Text="{Binding PropertyDataModel.Type}" Style="{StaticResource HomePageMedium}" TextColor="{StaticResource Black1Color}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="10">
+                                    <Image Source="ic_address.png" Style="{StaticResource MenuImageStyle}"/>
+                                    <Label Text="{Binding PropertyDataModel.Address}" Style="{StaticResource HomePageMedium}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0" IsVisible="{Binding PropertyDataModel.ShortTermApartment}">
+                                    <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                    <Label Text="{strings:Translate ShortTermAirBnbAprtment}" Style="{StaticResource HomePageMedium}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="-20,0,-20,-20" BackgroundColor="{StaticResource WhiteColor}" Padding="20,10">
+                        <!--Floor Detail-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate DetailFloorTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.FloorNumber}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--Apartment Detail-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate DetailApartmentNumberTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.ApartmentNumber}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--Building Code Detail-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate DetailBuildingCodeTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.BuildingCode}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--Access to property-->
+                        <StackLayout IsVisible="{Binding IsAccessProperty}">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate AccessPropertyWithDetails}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.AccessToProperty}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10" IsVisible="{Binding IsAccessProperty}"/>
+                        
+                        <!--No. of bathroom-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate BathroomCountTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfBathrooms}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+                        
+                        <!--No. of Toilets-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate ToiletsCountTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfToilets}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+                        
+                        <!--No. of Bedroom-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate BedroomCountTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfBedRooms}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+                        
+                        <!--Size of Property-->
+                        <StackLayout IsVisible="{Binding IsPropertySize}">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate PropertySizeTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.Size}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10" IsVisible="{Binding IsPropertySize}"/>
+
+                        <Grid Padding="0,10" RowSpacing="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Image Source="ic_green_tick.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Doorman}"/>
+                                <Image Source="ic_green_tick_unslct.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Doorman, Converter={StaticResource BoolToNotBoolConverter}}"/>
+                                <Label Text="{strings:Translate DoormanTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Image Source="ic_green_tick.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Parking}"/>
+                                <Image Source="ic_green_tick_unslct.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Parking, Converter={StaticResource BoolToNotBoolConverter}}"/>
+                                <Label Text="{strings:Translate ParkingTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="1" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Image Source="ic_green_tick.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Balcony}"/>
+                                <Image Source="ic_green_tick_unslct.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Balcony, Converter={StaticResource BoolToNotBoolConverter}}"/>
+                                <Label Text="{strings:Translate BalconyTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Image Source="ic_green_tick.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Dishwasher}"/>
+                                <Image Source="ic_green_tick_unslct.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Dishwasher, Converter={StaticResource BoolToNotBoolConverter}}"/>
+                                <Label Text="{strings:Translate DishwasherTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Image Source="ic_green_tick.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Pool}"/>
+                                <Image Source="ic_green_tick_unslct.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Pool, Converter={StaticResource BoolToNotBoolConverter}}"/>
+                                <Label Text="{strings:Translate PoolTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Image Source="ic_green_tick.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Garden}"/>
+                                <Image Source="ic_green_tick_unslct.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Garden, Converter={StaticResource BoolToNotBoolConverter}}"/>
+                                <Label Text="{strings:Translate GardenTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+
+                            <StackLayout Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+                                <Image Source="ic_green_tick.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Elevator}"/>
+                                <Image Source="ic_green_tick_unslct.png" Style="{StaticResource LoginImageStyle}" VerticalOptions="Center" IsVisible="{Binding PropertyDataModel.Elevator, Converter={StaticResource BoolToNotBoolConverter}}"/>
+                                <Label Text="{strings:Translate ElevatorTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                        </Grid>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--Bed Size-->
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate BedSize}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label  Text="Medium" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--No. of Queen Beds-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate QueenbedsTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfQueenBeds}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--No. of Double Beds-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate DoubleBedsTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfDoubleBeds}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--No. of Single Beds-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate SinglebedsTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfSingleBeds}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--No. of Single Sopha Beds-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate SingleSophabedsTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfSingleSofaBeds}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--No. of Double Sopha Beds-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate DoubleSophaBedsTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfDoubleSofaBeds}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--Duvet Size-->
+                        <StackLayout IsVisible="{Binding IsDuvetSize}">
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate DuvetSizeTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label  Text="{Binding PropertyDataModel.DuvetSize}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10" IsVisible="{Binding IsDuvetSize}"/>
+
+                        <!--No. of Duvet-->
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate DuvetsTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfDuvet}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+
+                        <BoxView Style="{StaticResource HorizontalBoxViewStyle}" Margin="-20,10"/>
+
+                        <!--No. of Pillow-->
+                        <StackLayout >
+                            <StackLayout Orientation="Horizontal" Spacing="10" Padding="7,0,0,0">
+                                <BoxView HeightRequest="14" WidthRequest="14" Margin="0,2,0,0" CornerRadius="7" BackgroundColor="{StaticResource BlueColor}" VerticalOptions="Center"/>
+                                <Label Text="{strings:Translate PillowsTitle}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black2Color}"/>
+                            </StackLayout>
+                            <Label Text="{Binding PropertyDataModel.NoOfPillows}" Style="{StaticResource HomePageML}" TextColor="{StaticResource Black1Color}" Margin="31,0,0,0"/>
+                        </StackLayout>
+                    </StackLayout>
+                    
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

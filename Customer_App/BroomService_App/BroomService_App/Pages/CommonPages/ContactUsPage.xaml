@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True"
+             NavigationPage.HasNavigationBar="False"
+                   xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+               xmlns:commonheader="clr-namespace:BroomService_App.Pages.CommonHeader"
+             x:Class="BroomService_App.Pages.ContactUsPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Header Bar-->
+            <Frame Padding="0" IsClippedToBounds="True" HasShadow="True">
+                <commonheader:BackArrowHeader HorizontalOptions="FillAndExpand"/>
+            </Frame>
+            <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="1">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20" BackgroundColor="White">
+
+
+                    <Label   Text="{strings:Translate ContactUs}" FontSize="25" TextColor="{StaticResource Black1Color}"  
+                   Style="{StaticResource BoldHeaderLabelStyle}"  BackgroundColor="Transparent" HorizontalOptions="Start"  
+                     Margin="-5,0,0,0"/>
+
+
+
+
+                    <Image Source="contact.png" HorizontalOptions="CenterAndExpand" HeightRequest="150" WidthRequest="150" Margin="0,20,0,0"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_name.png"/>
+                        <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                        <Entry Text="{Binding Name}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Name}" ReturnType="Next" />
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"  Margin="-20,0" />
+
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_mail.png"/>
+                        <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                        <Entry Text="{Binding Email}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Email}" ReturnType="Done"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2" Margin="-20,0"  />
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="ic_message.png" VerticalOptions="Start"/>
+                        <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                        <Editor Text="{Binding Message}" Style="{StaticResource EditorStyle}" Placeholder="{strings:Translate Message}" HeightRequest="80" HorizontalOptions="FillAndExpand"
+                        AutoSize="TextChanges"/>
+                    </StackLayout>
+                    <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"  Margin="-20,0" />
+
+                    <Button BackgroundColor="{StaticResource BlueColor}" Text="{strings:Translate SendBtn}" FontSize="Medium"
+                Style="{StaticResource ButtonStyle}"    Command="{Binding SendCommand}" TextColor="{StaticResource WhiteColor}" 
+                    HeightRequest="50" WidthRequest="150" Margin="0,30,0,0" >
+                        <Button.BorderRadius >
+                            <OnPlatform x:TypeArguments="x:Int32"
+                                iOS     ="25"
+                                Android ="30"  />
+                        </Button.BorderRadius>
+                    </Button>
+
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

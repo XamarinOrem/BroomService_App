@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:strings="clr-namespace:BroomService_App;assembly=BroomService_App"
+             xmlns:custom="clr-namespace:BroomService_App.CustomControls"
+             xmlns:img="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+            ios:Page.UseSafeArea="True"
+             x:Class="BroomService_App.Pages.RegisterPage">
+    <ContentPage.Content>
+        <ScrollView Padding="0,20">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="0">
+                <!--Cross Image-->
+                <Image x:Name="crossImage" Source="ic_cancel.png"  Style="{StaticResource LoginImageStyle}" HorizontalOptions="Start" Margin="20,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <!--Register Header Field-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="10"  Margin="20,25,20,10">
+                    <Label Text="{strings:Translate Register}" Style="{StaticResource BoldHeaderLabelStyle}" FontSize="35"
+                            VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                    <Label Text="{strings:Translate RegisterHeaderMsg}" Style="{StaticResource MediumLabelStyle}"
+                               VerticalTextAlignment="Center"/>
+                </StackLayout>
+
+                <!--Register ProfilePic Field-->
+                <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" Spacing="10"  Margin="20,25,20,10">
+                    <img:CircleImage Source="{Binding UserPic}" Style="{StaticResource RegisterUserImageStyle}" BorderColor="{StaticResource Black1Color}" BorderThickness="1" Aspect="AspectFit">
+                        <img:CircleImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ProfilePicCommand}" NumberOfTapsRequired="1"/>
+                        </img:CircleImage.GestureRecognizers>
+                    </img:CircleImage>
+                </StackLayout>
+
+                <!--FirstName Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,30,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_name.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <Entry Text="{Binding FirstName}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate FirstName}"  ReturnType="Next"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--LastName Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,30,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_name.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <Entry Text="{Binding LastName}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate LastName}" ReturnType="Next"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--Email Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,30,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_mail.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <Entry Text="{Binding Email}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Email}" ReturnType="Next"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--Password Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_lock.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <Entry Text="{Binding Password}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Password}" IsPassword="True" ReturnType="Next"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--Phone Number Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_register_phone.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <!--<Picker Title="+91" SelectedItem="{Binding CountryCodeSelected}" TitleColor="{StaticResource GrayColor}" ItemsSource="{Binding CountryCodeList}" VerticalOptions="Center" ItemDisplayBinding="{Binding CountryCode}"/>-->
+                    <Entry Text="{Binding CountryCode}" WidthRequest="55" HorizontalOptions="Start" VerticalOptions="Center"/>
+                    <!--<Image  HeightRequest="10" WidthRequest="10" VerticalOptions="Center" Source="ic_drop_arrow.png"/>-->
+                    <BoxView BackgroundColor="{StaticResource Black2Color}" WidthRequest="1" VerticalOptions="Center" HeightRequest="20"/>
+                    <Entry Text="{Binding PhoneNumber}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate PhoneNumber}" Keyboard="Numeric" ReturnType="Next"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--Country Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_register_company.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <custom:CustomPicker Icon="ic_drop_arrow.png" HorizontalOptions="FillAndExpand" Title="{strings:Translate Country}" TitleColor="{StaticResource GrayColor}" ItemsSource="{Binding CountryPickerList}" SelectedItem="{Binding CountrySelected}" ItemDisplayBinding="{Binding CountryName}" SelectedIndex="{Binding CountrySelectedIndexChanged}" />
+                    <!--<Entry Text="{Binding CountryName}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Country}"  ReturnType="Next"/>-->
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--City Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_register_city.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <Entry Text="{Binding CityName}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate City}" ReturnType="Next"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--Address Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_register_city.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <Entry Text="{Binding Address}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Address}"  ReturnType="Next"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--Zipcode Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20"  Margin="20,20,20,10">
+                    <Image  Style="{StaticResource LoginImageStyle}" Source="ic_register_zip.png"/>
+                    <BoxView Style="{StaticResource VerticalBoxViewStyle}"/>
+                    <Entry Text="{Binding ZipCode}" TextColor="{StaticResource Black1Color}" Style="{StaticResource EntryStyle}" Placeholder="{strings:Translate Zipcode}"  ReturnType="Done" Keyboard="Numeric"/>
+                </StackLayout>
+                <BoxView Style="{StaticResource HorizontalBoxViewStyle}" HeightRequest="2"/>
+
+                <!--TermConditon N Next button Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="20" Margin="20,10,20,20">
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                        <Image  Style="{StaticResource LoginImageStyle}" Source="{Binding TermConditionCheck}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding TermConditionCheckCommand}" NumberOfTapsRequired="1"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+
+                        <Label VerticalTextAlignment="Center" HorizontalOptions="Start">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{strings:Translate TermNcondtionMsg}" Style="{StaticResource MediumLabelStyle}" TextColor="{StaticResource Black3Color}"/>
+                                    <Span Text="{strings:Translate TermandConditions}" Style="{StaticResource HeaderLabelStyle}" TextColor="{StaticResource Black1Color}">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TermConditionCommand}" />
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <!--<Label Text="{strings:Translate TermNcondtionMsg}" Style="{StaticResource MediumLabelStyle}"
+                            VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                        <Label Text="{strings:Translate TermandConditions}" Style="{StaticResource HeaderLabelStyle}"
+                               VerticalTextAlignment="Center" TextColor="{StaticResource BlueColor}"/>
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TermConditionCommand}"/>
+                        </StackLayout.GestureRecognizers>-->
+                    </StackLayout>
+                    <Image Source="ic_next_btn" HorizontalOptions="EndAndExpand"  >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding RegisterCommand}"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+
+                <!--Already Account Field-->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="{strings:Translate AlreadyAccountMsg}" Style="{StaticResource MediumLabelStyle}"
+                            VerticalTextAlignment="Center"   HorizontalOptions="Start" TextColor="{StaticResource Black3Color}"/>
+                    <Label Text="{strings:Translate Login}" Style="{StaticResource HeaderLabelStyle}"
+                               VerticalTextAlignment="Center" TextColor="{StaticResource BlueColor}"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LoginCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
