@@ -62,7 +62,7 @@ namespace BroomService_App.ViewModels
         #endregion
 
         #region SetProperty
-        protected bool SetProperty<T>(ref T backingStore, T value,
+        public bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)
         {

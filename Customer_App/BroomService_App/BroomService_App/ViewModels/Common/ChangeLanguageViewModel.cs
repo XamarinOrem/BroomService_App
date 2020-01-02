@@ -5,6 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Pages;
+using BroomService_App.Popups;
 
 namespace BroomService_App.ViewModels
 {
@@ -16,6 +19,30 @@ namespace BroomService_App.ViewModels
         {
             get { return _IsAppAlreadyInstalled; }
             set { SetProperty(ref _IsAppAlreadyInstalled, value); }
+        }
+        #endregion
+
+
+        #region LanguageSelected
+        private string _LanguageSelected;
+        public string LanguageSelected
+        {
+            get { return _LanguageSelected; }
+            set { SetProperty(ref _LanguageSelected, value); }
+        }
+        #endregion
+
+
+        #region LanguagePopup
+        public Command LanguagePopup
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    _navigation.PushPopupAsync(new LanguagePickerPopup());
+                });
+            }
         }
         #endregion
 
@@ -80,6 +107,32 @@ namespace BroomService_App.ViewModels
         {
             IsAppAlreadyInstalled = isAppAlreadyInstalled;
 
+            LanguageSelected = AppResource.changelang_PickerPlaceholder;
+
+            MessagingCenter.Subscribe<string, string>(this, "LanguageSelected", (sender, arg1) =>
+            {
+                LanguageSelected = sender;
+                try
+                {
+                    App.Setlanguage(arg1);
+                    Application.Current.Properties["AppLocale"] = arg1;
+                    Application.Current.SavePropertiesAsync();
+                    if (IsAppAlreadyInstalled)
+                    {
+                        App.Current.MainPage = new NavigationPage(new HomeTabPage());
+                    }
+                    else
+                    {
+                        App.Current.MainPage = new NavigationPage(new LoginPage());
+                    }
+                    Application.Current.Properties["IsAppAlreadyInstalled"] = true;
+                    Application.Current.SavePropertiesAsync();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            });
             //if (Xamarin.Forms.Application.Current.Properties.ContainsKey("AppLocale") && !string.IsNullOrEmpty(Xamarin.Forms.Application.Current.Properties["AppLocale"].ToString()))
             //{
             //    var languageculture = Xamarin.Forms.Application.Current.Properties["AppLocale"].ToString();

@@ -5,7 +5,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(Picker), typeof(CPickerRender))]
+//[assembly: ExportRenderer(typeof(Picker), typeof(CPickerRender))]
 namespace BroomService_App.iOS.CustomRenderers
 {
     public class CPickerRender : PickerRenderer
@@ -13,9 +13,16 @@ namespace BroomService_App.iOS.CustomRenderers
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             base.OnElementPropertyChanged(sender, e);
-            if (Control != null)
+            try
             {
-                Control.BorderStyle = UITextBorderStyle.None;
+                if (Control != null)
+                {
+                    Control.BorderStyle = UITextBorderStyle.None;
+                }
+            }
+            catch(Exception ex)
+            {
+
             }
         }
     }

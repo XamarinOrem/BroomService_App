@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                 xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                 x:Class="BroomService_App.Popups.LanguagePickerPopup">
+    <StackLayout HorizontalOptions="CenterAndExpand" Margin="50" VerticalOptions="CenterAndExpand" BackgroundColor="{StaticResource Transparent}">
+        <StackLayout x:Name="FrameContainer" BackgroundColor="Transparent"  VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                           Padding="0"   Spacing="0">
+            <Frame Padding="0" CornerRadius="0" BackgroundColor="#ECECEC" HasShadow="False" VerticalOptions="CenterAndExpand">
+                <StackLayout BackgroundColor="{StaticResource WhiteColor}" HorizontalOptions="CenterAndExpand" Spacing="10" VerticalOptions="Center" Padding="15" Margin="0">
+
+                    <CollectionView BackgroundColor="{StaticResource Transparent}" HeightRequest="250"  VerticalOptions="Center" x:Name="languageListView" SelectionMode="Single"  SelectedItem="{Binding LanguageSelected}" SelectionChanged="LanguageListView_ItemSelected">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame HorizontalOptions="FillAndExpand" VerticalOptions="Center" CornerRadius="0" BorderColor="{StaticResource Black1Color}" HasShadow="False">
+                                    <Grid HorizontalOptions="FillAndExpand">
+
+                                        <Label HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="Center" LineBreakMode="TailTruncation"
+                                               FontSize="16" Text="{Binding LanguageFullName}" TextColor="{StaticResource Black1Color}"/>
+
+
+                                    </Grid>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+
+    </StackLayout>
+</pages:PopupPage>

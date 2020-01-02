@@ -28,8 +28,15 @@
             </Image>
 
             <Frame Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" IsClippedToBounds="True" Margin="20,0,20,0">
-                <cc:CustomPicker Icon="ic_drop_arrow.png" Title="{strings:Translate changelang_PickerPlaceholder}" ItemsSource="{Binding ChangeLanguageList}" SelectedItem="{Binding ChangeLanguageListSelected}" ItemDisplayBinding="{Binding LanguageFullName}"/>
+                <Label Text="{Binding LanguageSelected}" FontSize="16" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center"/>
+
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding LanguagePopup}" NumberOfTapsRequired="1"/>
+                </Frame.GestureRecognizers>
             </Frame>
+            <!--<Frame Grid.Row="0" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" IsClippedToBounds="True" Margin="20,0,20,0">
+                <cc:CustomPicker Icon="ic_drop_arrow.png" Title="{strings:Translate changelang_PickerPlaceholder}" ItemsSource="{Binding ChangeLanguageList}" SelectedItem="{Binding ChangeLanguageListSelected}" ItemDisplayBinding="{Binding LanguageFullName}"/>
+            </Frame>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

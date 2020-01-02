@@ -6,11 +6,32 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
+using Rg.Plugins.Popup.Extensions;
+using Rg.Plugins.Popup.Pages;
+using BroomService_App.Popups;
 
 namespace BroomService_App.ViewModels
 {
     public class ChangeLanguageViewModel : BaseViewModel
     {
+        #region LanguageSelected
+        private string _LanguageSelected;
+        public string LanguageSelected
+        {
+            get { return _LanguageSelected; }
+            set { SetProperty(ref _LanguageSelected, value); }
+        }
+        #endregion
+
+        #region IsLanguagePopupVisible
+        private bool _IsLanguagePopupVisible;
+        public bool IsLanguagePopupVisible
+        {
+            get { return _IsLanguagePopupVisible; }
+            set { SetProperty(ref _IsLanguagePopupVisible, value); }
+        }
+        #endregion
+
         #region IsAppAlreadyInstalled
         private bool _IsAppAlreadyInstalled;
         public bool IsAppAlreadyInstalled
@@ -87,7 +108,39 @@ namespace BroomService_App.ViewModels
         public ChangeLanguageViewModel(INavigation navigation, bool isAppAlreadyInstalled) : base(navigation)
         {
             IsAppAlreadyInstalled = isAppAlreadyInstalled;
+            LanguageSelected = AppResource.changelang_PickerPlaceholder;
 
+            MessagingCenter.Subscribe<string, string>(this, "LanguageSelected", (sender,arg1) =>
+            {
+                LanguageSelected = sender;
+                try
+                {
+                    App.Setlanguage(arg1);
+                    Application.Current.Properties["AppLocale"] = arg1;
+                    Application.Current.SavePropertiesAsync();
+                    if (IsAppAlreadyInstalled)
+                    {
+                        if (CurrentUserType == Convert.ToInt32(UserTypeEnum.ServiceProvider))
+                        {
+                            App.Current.MainPage = new NavigationPage(new Pages.ServiceProviderFlow.HomeTabbedPage());
+                        }
+                        else
+                        {
+                            App.Current.MainPage = new NavigationPage(new Pages.WorkerFlow.HomeTabbedPage());
+                        }
+                    }
+                    else
+                    {
+                        App.Current.MainPage = new NavigationPage(new LoginPage());
+                    }
+                    Application.Current.Properties["IsAppAlreadyInstalled"] = true;
+                    Application.Current.SavePropertiesAsync();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            });
             //if (Xamarin.Forms.Application.Current.Properties.ContainsKey("AppLocale") && !string.IsNullOrEmpty(Xamarin.Forms.Application.Current.Properties["AppLocale"].ToString()))
             //{
             //    var languageculture = Xamarin.Forms.Application.Current.Properties["AppLocale"].ToString();
@@ -111,6 +164,19 @@ namespace BroomService_App.ViewModels
             //            break;
             //    }
             //}
+        }
+        #endregion
+
+        #region LanguagePopup
+        public Command LanguagePopup
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    _navigation.PushPopupAsync(new LanguagePickerPopup());
+                });
+            }
         }
         #endregion
 
